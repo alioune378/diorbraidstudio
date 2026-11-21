@@ -550,6 +550,7 @@ def page_booking(l):
   <div class="row"><a class="btn" href="{e(BK['scheduler_url'])}" target="_blank" rel="noopener" data-scheduler>{e(t['scheduler_cta'])} {ARR}</a></div>
  </div>"""
     wa = whatsapp()
+    cfg_json = json.dumps(cfg, ensure_ascii=False).replace("</", "<" + chr(92) + "/")
     return f"""
 <section class="phead veins"><div class="wrap rv">
  <span class="kicker">{e(t['by_appointment'])}</span>
@@ -650,7 +651,7 @@ def page_booking(l):
   </div>
  </aside>
 </div></section>
-<script id="bk-cfg" type="application/json">{json.dumps(cfg, ensure_ascii=False).replace('</', '<\\/')}</script>
+<script id="bk-cfg" type="application/json">{cfg_json}</script>
 """
 
 
