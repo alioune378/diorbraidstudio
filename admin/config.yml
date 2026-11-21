@@ -1,0 +1,1087 @@
+{
+ "backend": {
+  "name": "git-gateway",
+  "branch": "main",
+  "commit_messages": {
+   "update": "Contenu : mise à jour depuis le tableau de bord"
+  }
+ },
+ "locale": "fr",
+ "site_url": "https://diorbraidstudio.netlify.app",
+ "display_url": "https://diorbraidstudio.netlify.app",
+ "logo_url": "/assets/brand/logo-nav.png",
+ "media_folder": "assets/uploads",
+ "public_folder": "/assets/uploads",
+ "collections": [
+  {
+   "name": "site",
+   "label": "Site web",
+   "editor": {
+    "preview": false
+   },
+   "files": [
+    {
+     "name": "site",
+     "label": "Contenu du site (prestations, prix, galerie, contact…)",
+     "file": "content/site.json",
+     "format": "json",
+     "fields": [
+      {
+       "label": "Note",
+       "name": "_readme",
+       "widget": "hidden",
+       "default": "Dior Braid Studio content. Status: READY = public, PENDING = hidden or fallback shown, DRAFT = editable but never published. Prices are in CAD; leave price null to show 'Sur devis'. Duration in minutes; leave null to show 'Durée à confirmer'. Edit from /admin or directly in this file."
+      },
+      {
+       "label": "Entreprise & contact",
+       "name": "business",
+       "widget": "object",
+       "fields": [
+        {
+         "label": "Nom",
+         "name": "name",
+         "widget": "string"
+        },
+        {
+         "label": "Slogan",
+         "name": "tagline",
+         "widget": "object",
+         "collapsed": false,
+         "fields": [
+          {
+           "label": "Français",
+           "name": "fr",
+           "widget": "string",
+           "required": false
+          },
+          {
+           "label": "English",
+           "name": "en",
+           "widget": "string",
+           "required": false
+          }
+         ]
+        },
+        {
+         "label": "Téléphone (affiché)",
+         "name": "phone",
+         "widget": "string"
+        },
+        {
+         "label": "Téléphone (format +1…)",
+         "name": "phone_href",
+         "widget": "string"
+        },
+        {
+         "label": "Courriel",
+         "name": "email",
+         "widget": "string"
+        },
+        {
+         "label": "WhatsApp (READY seulement si ce numéro est bien sur WhatsApp)",
+         "name": "whatsapp",
+         "widget": "object",
+         "fields": [
+          {
+           "label": "Statut",
+           "name": "status",
+           "widget": "select",
+           "options": [
+            "READY",
+            "PENDING",
+            "DRAFT"
+           ],
+           "default": "READY",
+           "hint": "READY = publié · PENDING = masqué / texte de remplacement · DRAFT = brouillon jamais publié"
+          },
+          {
+           "label": "Numéro (chiffres, ex. 14389229243)",
+           "name": "number",
+           "widget": "string"
+          }
+         ]
+        },
+        {
+         "label": "Emplacement",
+         "name": "location",
+         "widget": "object",
+         "fields": [
+          {
+           "label": "Affichage de l’adresse",
+           "name": "display_mode",
+           "widget": "select",
+           "options": [
+            {
+             "label": "Ville seulement (recommandé)",
+             "value": "city"
+            },
+            {
+             "label": "Adresse complète",
+             "value": "street"
+            }
+           ],
+           "default": "city",
+           "hint": "« Adresse complète » n’affiche la rue que si le statut de l’adresse est READY."
+          },
+          {
+           "label": "Ville affichée",
+           "name": "city",
+           "widget": "string"
+          },
+          {
+           "label": "Adresse de rue (privée par défaut)",
+           "name": "street_address",
+           "widget": "object",
+           "fields": [
+            {
+             "label": "Statut",
+             "name": "status",
+             "widget": "select",
+             "options": [
+              "READY",
+              "PENDING",
+              "DRAFT"
+             ],
+             "default": "READY",
+             "hint": "READY = publié · PENDING = masqué / texte de remplacement · DRAFT = brouillon jamais publié"
+            },
+            {
+             "label": "Adresse",
+             "name": "value",
+             "widget": "string",
+             "required": false
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "label": "Horaires (si PENDING : « Sur rendez-vous uniquement »)",
+         "name": "hours",
+         "widget": "object",
+         "fields": [
+          {
+           "label": "Statut",
+           "name": "status",
+           "widget": "select",
+           "options": [
+            "READY",
+            "PENDING",
+            "DRAFT"
+           ],
+           "default": "READY",
+           "hint": "READY = publié · PENDING = masqué / texte de remplacement · DRAFT = brouillon jamais publié"
+          },
+          {
+           "label": "Texte",
+           "name": "text",
+           "widget": "object",
+           "collapsed": false,
+           "fields": [
+            {
+             "label": "Français",
+             "name": "fr",
+             "widget": "string",
+             "required": false
+            },
+            {
+             "label": "English",
+             "name": "en",
+             "widget": "string",
+             "required": false
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "label": "Réseaux sociaux",
+         "name": "social",
+         "widget": "list",
+         "fields": [
+          {
+           "label": "Statut",
+           "name": "status",
+           "widget": "select",
+           "options": [
+            "READY",
+            "PENDING",
+            "DRAFT"
+           ],
+           "default": "READY",
+           "hint": "READY = publié · PENDING = masqué / texte de remplacement · DRAFT = brouillon jamais publié"
+          },
+          {
+           "label": "Réseau",
+           "name": "network",
+           "widget": "string"
+          },
+          {
+           "label": "Lien",
+           "name": "url",
+           "widget": "string",
+           "required": false
+          }
+         ]
+        },
+        {
+         "label": "Adresse du site",
+         "name": "site_url",
+         "widget": "string"
+        }
+       ]
+      },
+      {
+       "label": "Réservation",
+       "name": "booking",
+       "widget": "object",
+       "fields": [
+        {
+         "label": "Mode",
+         "name": "mode",
+         "widget": "select",
+         "options": [
+          {
+           "label": "Demande (Dior confirme)",
+           "value": "request"
+          },
+          {
+           "label": "Agenda en ligne (Square)",
+           "value": "scheduler"
+          }
+         ],
+         "default": "request"
+        },
+        {
+         "label": "Aide",
+         "name": "_mode_help",
+         "widget": "hidden",
+         "default": "request = customers send a request that Dior confirms. scheduler = customers pick a real time slot in the online booking calendar (set scheduler_url)."
+        },
+        {
+         "label": "Nom de l’agenda",
+         "name": "scheduler_name",
+         "widget": "string"
+        },
+        {
+         "label": "Lien de réservation Square",
+         "name": "scheduler_url",
+         "widget": "string",
+         "required": false,
+         "hint": "Collez le lien de votre page de réservation Square, puis passez le mode à « Agenda en ligne »."
+        },
+        {
+         "label": "Acompte",
+         "name": "deposit",
+         "widget": "object",
+         "fields": [
+          {
+           "label": "Statut",
+           "name": "status",
+           "widget": "select",
+           "options": [
+            "READY",
+            "PENDING",
+            "DRAFT"
+           ],
+           "default": "READY",
+           "hint": "READY = publié · PENDING = masqué / texte de remplacement · DRAFT = brouillon jamais publié"
+          },
+          {
+           "label": "Texte",
+           "name": "text",
+           "widget": "object",
+           "collapsed": false,
+           "fields": [
+            {
+             "label": "Français",
+             "name": "fr",
+             "widget": "string",
+             "required": false
+            },
+            {
+             "label": "English",
+             "name": "en",
+             "widget": "string",
+             "required": false
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "label": "Politique d’annulation (jamais affichée tant qu’elle n’est pas READY)",
+         "name": "cancellation_policy",
+         "widget": "object",
+         "fields": [
+          {
+           "label": "Statut",
+           "name": "status",
+           "widget": "select",
+           "options": [
+            "READY",
+            "PENDING",
+            "DRAFT"
+           ],
+           "default": "READY",
+           "hint": "READY = publié · PENDING = masqué / texte de remplacement · DRAFT = brouillon jamais publié"
+          },
+          {
+           "label": "Texte",
+           "name": "text",
+           "widget": "object",
+           "collapsed": false,
+           "fields": [
+            {
+             "label": "Français",
+             "name": "fr",
+             "widget": "string",
+             "required": false
+            },
+            {
+             "label": "English",
+             "name": "en",
+             "widget": "string",
+             "required": false
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "label": "Accueil",
+       "name": "home",
+       "widget": "object",
+       "fields": [
+        {
+         "label": "Titre (HTML : <br>, <em>)",
+         "name": "hero_title",
+         "widget": "object",
+         "collapsed": false,
+         "fields": [
+          {
+           "label": "Français",
+           "name": "fr",
+           "widget": "string",
+           "required": false
+          },
+          {
+           "label": "English",
+           "name": "en",
+           "widget": "string",
+           "required": false
+          }
+         ]
+        },
+        {
+         "label": "Texte",
+         "name": "hero_text",
+         "widget": "object",
+         "collapsed": false,
+         "fields": [
+          {
+           "label": "Français",
+           "name": "fr",
+           "widget": "text",
+           "required": false
+          },
+          {
+           "label": "English",
+           "name": "en",
+           "widget": "text",
+           "required": false
+          }
+         ]
+        },
+        {
+         "label": "Années d’expérience",
+         "name": "years",
+         "widget": "number",
+         "value_type": "int"
+        }
+       ]
+      },
+      {
+       "label": "Fondatrice",
+       "name": "founder",
+       "widget": "object",
+       "fields": [
+        {
+         "label": "Statut",
+         "name": "status",
+         "widget": "select",
+         "options": [
+          "READY",
+          "PENDING",
+          "DRAFT"
+         ],
+         "default": "READY",
+         "hint": "READY = publié · PENDING = masqué / texte de remplacement · DRAFT = brouillon jamais publié"
+        },
+        {
+         "label": "Biographie",
+         "name": "bio",
+         "widget": "object",
+         "collapsed": false,
+         "fields": [
+          {
+           "label": "Français",
+           "name": "fr",
+           "widget": "text",
+           "required": false
+          },
+          {
+           "label": "English",
+           "name": "en",
+           "widget": "text",
+           "required": false
+          }
+         ]
+        },
+        {
+         "label": "Portrait",
+         "name": "portrait",
+         "widget": "object",
+         "fields": [
+          {
+           "label": "Statut",
+           "name": "status",
+           "widget": "select",
+           "options": [
+            "READY",
+            "PENDING",
+            "DRAFT"
+           ],
+           "default": "READY",
+           "hint": "READY = publié · PENDING = masqué / texte de remplacement · DRAFT = brouillon jamais publié"
+          },
+          {
+           "label": "Photo",
+           "name": "src",
+           "widget": "image",
+           "required": false
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "label": "La Signature Dior",
+       "name": "signature",
+       "widget": "object",
+       "fields": [
+        {
+         "label": "Titre",
+         "name": "title",
+         "widget": "object",
+         "collapsed": false,
+         "fields": [
+          {
+           "label": "Français",
+           "name": "fr",
+           "widget": "string",
+           "required": false
+          },
+          {
+           "label": "English",
+           "name": "en",
+           "widget": "string",
+           "required": false
+          }
+         ]
+        },
+        {
+         "label": "Citation",
+         "name": "quote",
+         "widget": "object",
+         "collapsed": false,
+         "fields": [
+          {
+           "label": "Français",
+           "name": "fr",
+           "widget": "text",
+           "required": false
+          },
+          {
+           "label": "English",
+           "name": "en",
+           "widget": "text",
+           "required": false
+          }
+         ]
+        },
+        {
+         "label": "Piliers",
+         "name": "pillars",
+         "widget": "list",
+         "fields": [
+          {
+           "label": "Français",
+           "name": "fr",
+           "widget": "string"
+          },
+          {
+           "label": "English",
+           "name": "en",
+           "widget": "string"
+          },
+          {
+           "label": "Texte",
+           "name": "text",
+           "widget": "object",
+           "collapsed": false,
+           "fields": [
+            {
+             "label": "Français",
+             "name": "fr",
+             "widget": "text",
+             "required": false
+            },
+            {
+             "label": "English",
+             "name": "en",
+             "widget": "text",
+             "required": false
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "label": "Prestations",
+       "name": "services",
+       "widget": "list",
+       "summary": "{{fields.name.fr}}",
+       "fields": [
+        {
+         "label": "Statut",
+         "name": "status",
+         "widget": "select",
+         "options": [
+          "READY",
+          "PENDING",
+          "DRAFT"
+         ],
+         "default": "READY",
+         "hint": "READY = publié · PENDING = masqué / texte de remplacement · DRAFT = brouillon jamais publié"
+        },
+        {
+         "label": "Identifiant (ne pas modifier)",
+         "name": "id",
+         "widget": "string"
+        },
+        {
+         "label": "Nom",
+         "name": "name",
+         "widget": "object",
+         "collapsed": false,
+         "fields": [
+          {
+           "label": "Français",
+           "name": "fr",
+           "widget": "string",
+           "required": false
+          },
+          {
+           "label": "English",
+           "name": "en",
+           "widget": "string",
+           "required": false
+          }
+         ]
+        },
+        {
+         "label": "Description",
+         "name": "description",
+         "widget": "object",
+         "collapsed": false,
+         "fields": [
+          {
+           "label": "Français",
+           "name": "fr",
+           "widget": "text",
+           "required": false
+          },
+          {
+           "label": "English",
+           "name": "en",
+           "widget": "text",
+           "required": false
+          }
+         ]
+        },
+        {
+         "label": "Image",
+         "name": "image",
+         "widget": "image",
+         "required": false
+        },
+        {
+         "label": "Prix (CAD) — laisser vide = « Sur devis »",
+         "name": "price_cad",
+         "widget": "number",
+         "value_type": "float",
+         "required": false
+        },
+        {
+         "label": "Durée (minutes) — vide = « Durée à confirmer »",
+         "name": "duration_min",
+         "widget": "number",
+         "value_type": "int",
+         "required": false
+        },
+        {
+         "label": "Variantes",
+         "name": "variations",
+         "widget": "list",
+         "required": false,
+         "summary": "{{fields.name.fr}}",
+         "fields": [
+          {
+           "label": "Statut",
+           "name": "status",
+           "widget": "select",
+           "options": [
+            "READY",
+            "PENDING",
+            "DRAFT"
+           ],
+           "default": "READY",
+           "hint": "READY = publié · PENDING = masqué / texte de remplacement · DRAFT = brouillon jamais publié"
+          },
+          {
+           "label": "Nom",
+           "name": "name",
+           "widget": "object",
+           "collapsed": false,
+           "fields": [
+            {
+             "label": "Français",
+             "name": "fr",
+             "widget": "string",
+             "required": false
+            },
+            {
+             "label": "English",
+             "name": "en",
+             "widget": "string",
+             "required": false
+            }
+           ]
+          },
+          {
+           "label": "Prix (CAD) — laisser vide = « Sur devis »",
+           "name": "price_cad",
+           "widget": "number",
+           "value_type": "float",
+           "required": false
+          },
+          {
+           "label": "Durée (minutes) — vide = « Durée à confirmer »",
+           "name": "duration_min",
+           "widget": "number",
+           "value_type": "int",
+           "required": false
+          }
+         ]
+        },
+        {
+         "label": "Préparation",
+         "name": "preparation",
+         "widget": "object",
+         "fields": [
+          {
+           "label": "Statut",
+           "name": "status",
+           "widget": "select",
+           "options": [
+            "READY",
+            "PENDING",
+            "DRAFT"
+           ],
+           "default": "READY",
+           "hint": "READY = publié · PENDING = masqué / texte de remplacement · DRAFT = brouillon jamais publié"
+          },
+          {
+           "label": "Français",
+           "name": "fr",
+           "widget": "text",
+           "required": false
+          },
+          {
+           "label": "English",
+           "name": "en",
+           "widget": "text",
+           "required": false
+          }
+         ]
+        },
+        {
+         "label": "Options (add-ons)",
+         "name": "addons",
+         "widget": "list",
+         "required": false,
+         "summary": "{{fields.name.fr}}",
+         "fields": [
+          {
+           "label": "Statut",
+           "name": "status",
+           "widget": "select",
+           "options": [
+            "READY",
+            "PENDING",
+            "DRAFT"
+           ],
+           "default": "READY",
+           "hint": "READY = publié · PENDING = masqué / texte de remplacement · DRAFT = brouillon jamais publié"
+          },
+          {
+           "label": "Nom",
+           "name": "name",
+           "widget": "object",
+           "collapsed": false,
+           "fields": [
+            {
+             "label": "Français",
+             "name": "fr",
+             "widget": "string",
+             "required": false
+            },
+            {
+             "label": "English",
+             "name": "en",
+             "widget": "string",
+             "required": false
+            }
+           ]
+          },
+          {
+           "label": "Prix (CAD) — laisser vide = « Sur devis »",
+           "name": "price_cad",
+           "widget": "number",
+           "value_type": "float",
+           "required": false
+          }
+         ]
+        },
+        {
+         "label": "Demander la taille",
+         "name": "sizes",
+         "widget": "boolean",
+         "default": true
+        },
+        {
+         "label": "Demander la longueur",
+         "name": "lengths",
+         "widget": "boolean",
+         "default": true
+        }
+       ]
+      },
+      {
+       "label": "Galerie",
+       "name": "gallery",
+       "widget": "object",
+       "fields": [
+        {
+         "label": "Catégories",
+         "name": "categories",
+         "widget": "list",
+         "hint": "Identifiants des prestations"
+        },
+        {
+         "label": "Photos (uniquement vos propres réalisations)",
+         "name": "items",
+         "widget": "list",
+         "required": false,
+         "summary": "{{fields.category}} — {{fields.caption.fr}}",
+         "fields": [
+          {
+           "label": "Statut",
+           "name": "status",
+           "widget": "select",
+           "options": [
+            "READY",
+            "PENDING",
+            "DRAFT"
+           ],
+           "default": "READY",
+           "hint": "READY = publié · PENDING = masqué / texte de remplacement · DRAFT = brouillon jamais publié"
+          },
+          {
+           "label": "Photo",
+           "name": "image",
+           "widget": "image"
+          },
+          {
+           "label": "Catégorie",
+           "name": "category",
+           "widget": "select",
+           "options": [
+            "locs",
+            "braids",
+            "twists",
+            "tissage",
+            "kids",
+            "treatments"
+           ]
+          },
+          {
+           "label": "Légende",
+           "name": "caption",
+           "widget": "object",
+           "collapsed": false,
+           "fields": [
+            {
+             "label": "Français",
+             "name": "fr",
+             "widget": "string",
+             "required": false
+            },
+            {
+             "label": "English",
+             "name": "en",
+             "widget": "string",
+             "required": false
+            }
+           ]
+          },
+          {
+           "label": "Texte alternatif (description pour l’accessibilité)",
+           "name": "alt",
+           "widget": "object",
+           "collapsed": false,
+           "fields": [
+            {
+             "label": "Français",
+             "name": "fr",
+             "widget": "string",
+             "required": false
+            },
+            {
+             "label": "English",
+             "name": "en",
+             "widget": "string",
+             "required": false
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "label": "Témoignages (section masquée s’il n’y en a aucun)",
+       "name": "testimonials",
+       "widget": "list",
+       "required": false,
+       "fields": [
+        {
+         "label": "Statut",
+         "name": "status",
+         "widget": "select",
+         "options": [
+          "READY",
+          "PENDING",
+          "DRAFT"
+         ],
+         "default": "READY",
+         "hint": "READY = publié · PENDING = masqué / texte de remplacement · DRAFT = brouillon jamais publié"
+        },
+        {
+         "label": "Nom",
+         "name": "name",
+         "widget": "string"
+        },
+        {
+         "label": "Texte",
+         "name": "text",
+         "widget": "object",
+         "collapsed": false,
+         "fields": [
+          {
+           "label": "Français",
+           "name": "fr",
+           "widget": "text",
+           "required": false
+          },
+          {
+           "label": "English",
+           "name": "en",
+           "widget": "text",
+           "required": false
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "label": "FAQ",
+       "name": "faq",
+       "widget": "list",
+       "required": false,
+       "fields": [
+        {
+         "label": "Statut",
+         "name": "status",
+         "widget": "select",
+         "options": [
+          "READY",
+          "PENDING",
+          "DRAFT"
+         ],
+         "default": "READY",
+         "hint": "READY = publié · PENDING = masqué / texte de remplacement · DRAFT = brouillon jamais publié"
+        },
+        {
+         "label": "Question",
+         "name": "q",
+         "widget": "object",
+         "collapsed": false,
+         "fields": [
+          {
+           "label": "Français",
+           "name": "fr",
+           "widget": "string",
+           "required": false
+          },
+          {
+           "label": "English",
+           "name": "en",
+           "widget": "string",
+           "required": false
+          }
+         ]
+        },
+        {
+         "label": "Réponse",
+         "name": "a",
+         "widget": "object",
+         "collapsed": false,
+         "fields": [
+          {
+           "label": "Français",
+           "name": "fr",
+           "widget": "text",
+           "required": false
+          },
+          {
+           "label": "English",
+           "name": "en",
+           "widget": "text",
+           "required": false
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "label": "Conseils (journal)",
+       "name": "journal",
+       "widget": "object",
+       "fields": [
+        {
+         "label": "Sujets en préparation",
+         "name": "topics",
+         "widget": "list",
+         "fields": [
+          {
+           "label": "Français",
+           "name": "fr",
+           "widget": "string"
+          },
+          {
+           "label": "English",
+           "name": "en",
+           "widget": "string"
+          }
+         ]
+        },
+        {
+         "label": "Articles",
+         "name": "articles",
+         "widget": "list",
+         "required": false,
+         "summary": "{{fields.title.fr}}",
+         "fields": [
+          {
+           "label": "Statut",
+           "name": "status",
+           "widget": "select",
+           "options": [
+            "READY",
+            "DRAFT"
+           ],
+           "default": "DRAFT"
+          },
+          {
+           "label": "Titre",
+           "name": "title",
+           "widget": "object",
+           "collapsed": false,
+           "fields": [
+            {
+             "label": "Français",
+             "name": "fr",
+             "widget": "string",
+             "required": false
+            },
+            {
+             "label": "English",
+             "name": "en",
+             "widget": "string",
+             "required": false
+            }
+           ]
+          },
+          {
+           "label": "Texte",
+           "name": "body",
+           "widget": "object",
+           "collapsed": false,
+           "fields": [
+            {
+             "label": "Français",
+             "name": "fr",
+             "widget": "markdown",
+             "required": false
+            },
+            {
+             "label": "English",
+             "name": "en",
+             "widget": "markdown",
+             "required": false
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "label": "Crédit",
+       "name": "credit",
+       "widget": "object",
+       "fields": [
+        {
+         "label": "Nom",
+         "name": "name",
+         "widget": "string"
+        },
+        {
+         "label": "Lien",
+         "name": "url",
+         "widget": "string"
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ ]
+}
