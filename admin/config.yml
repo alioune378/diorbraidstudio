@@ -33,6 +33,25 @@
        "default": "Dior Braid Studio content. Status: READY = public, PENDING = hidden or fallback shown, DRAFT = editable but never published. Prices are in CAD; leave price null to show 'Sur devis'. Duration in minutes; leave null to show 'Durée à confirmer'. Edit from /admin or directly in this file."
       },
       {
+       "label": "Photos d’inspiration temporaires",
+       "name": "inspiration_images",
+       "widget": "object",
+       "fields": [
+        {
+         "label": "Activées (étiquette « Inspiration » + site masqué des moteurs de recherche)",
+         "name": "enabled",
+         "widget": "boolean",
+         "default": true,
+         "hint": "Décochez quand les photos de Dior ont remplacé les images d’inspiration."
+        },
+        {
+         "label": "Aide",
+         "name": "_help",
+         "widget": "hidden"
+        }
+       ]
+      },
+      {
        "label": "Entreprise & contact",
        "name": "business",
        "widget": "object",
@@ -356,8 +375,28 @@
        "widget": "object",
        "fields": [
         {
-         "label": "Titre (HTML : <br>, <em>)",
+         "label": "Titre (HTML : <em>)",
          "name": "hero_title",
+         "widget": "object",
+         "collapsed": false,
+         "fields": [
+          {
+           "label": "Français",
+           "name": "fr",
+           "widget": "string",
+           "required": false
+          },
+          {
+           "label": "English",
+           "name": "en",
+           "widget": "string",
+           "required": false
+          }
+         ]
+        },
+        {
+         "label": "Sous-titre",
+         "name": "hero_sub",
          "widget": "object",
          "collapsed": false,
          "fields": [
@@ -400,6 +439,12 @@
          "name": "years",
          "widget": "number",
          "value_type": "int"
+        },
+        {
+         "label": "Photo « Notre histoire »",
+         "name": "heritage_image",
+         "widget": "image",
+         "required": false
         }
        ]
       },
@@ -473,8 +518,34 @@
        "widget": "object",
        "fields": [
         {
+         "label": "Photo",
+         "name": "image",
+         "widget": "image",
+         "required": false
+        },
+        {
          "label": "Titre",
          "name": "title",
+         "widget": "object",
+         "collapsed": false,
+         "fields": [
+          {
+           "label": "Français",
+           "name": "fr",
+           "widget": "string",
+           "required": false
+          },
+          {
+           "label": "English",
+           "name": "en",
+           "widget": "string",
+           "required": false
+          }
+         ]
+        },
+        {
+         "label": "Accroche (HTML : <em>)",
+         "name": "headline",
          "widget": "object",
          "collapsed": false,
          "fields": [
@@ -809,13 +880,24 @@
             "PENDING",
             "DRAFT"
            ],
-           "default": "READY",
-           "hint": "READY = publié · PENDING = masqué / texte de remplacement · DRAFT = brouillon jamais publié"
+           "default": "READY"
           },
           {
            "label": "Photo",
            "name": "image",
            "widget": "image"
+          },
+          {
+           "label": "Miniature (facultatif)",
+           "name": "thumb",
+           "widget": "image",
+           "required": false
+          },
+          {
+           "label": "Image d’inspiration (pas une création de Dior)",
+           "name": "inspiration",
+           "widget": "boolean",
+           "default": false
           },
           {
            "label": "Catégorie",
@@ -851,7 +933,7 @@
            ]
           },
           {
-           "label": "Texte alternatif (description pour l’accessibilité)",
+           "label": "Texte alternatif",
            "name": "alt",
            "widget": "object",
            "collapsed": false,

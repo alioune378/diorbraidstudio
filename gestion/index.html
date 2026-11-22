@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="fr-CA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>Tableau de bord — Dior Braid Studio</title>
+<meta name="theme-color" content="#2B1810">
+<link rel="icon" href="/assets/brand/favicon-64.png">
+<link rel="apple-touch-icon" href="/assets/brand/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Playfair+Display:ital,wght@0,500;1,500&display=swap">
+<link rel="stylesheet" href="/gestion/app.css">
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</head>
+<body>
+<header class="top">
+ <img src="/assets/brand/logo-nav-white.png" alt="Dior Braid Studio" width="520" height="461">
+ <div class="who"><b>Tableau de bord</b><span id="who"></span></div>
+ <button class="ghost sm" id="logout" hidden>Déconnexion</button>
+</header>
+
+<section id="login" class="login" hidden>
+ <h1>Espace privé</h1>
+ <p>Connectez-vous avec le courriel invité pour gérer vos rendez-vous.</p>
+ <button class="gold" id="login-btn">Se connecter</button>
+ <p class="small" id="login-err"></p>
+</section>
+
+<main id="app" hidden>
+ <div class="banner" id="mail-banner" hidden>Les courriels automatiques ne sont pas encore activés. Utilisez les boutons <b>Texto</b>, <b>WhatsApp</b> ou <b>Courriel</b> pour écrire à vos clientes.</div>
+ <nav class="tabs" role="tablist">
+  <button role="tab" data-tab="req" aria-selected="true">Demandes <span class="count" id="c-req">0</span></button>
+  <button role="tab" data-tab="cal" aria-selected="false">Agenda</button>
+  <button role="tab" data-tab="hours" aria-selected="false">Disponibilités</button>
+  <button role="tab" data-tab="clients" aria-selected="false">Clientes</button>
+  <a class="tab-link" href="/admin/" target="_blank" rel="noopener">Contenu du site ↗</a>
+ </nav>
+
+ <section data-panel="req">
+  <div class="row-between"><h2>Demandes en attente</h2><button class="gold sm" data-new>+ Rendez-vous</button></div>
+  <div id="req-list" class="list"></div>
+ </section>
+
+ <section data-panel="cal" hidden>
+  <div class="row-between wrap-row">
+   <div class="seg" role="group" aria-label="Vue"><button data-view="day">Jour</button><button data-view="week" aria-pressed="true">Semaine</button><button data-view="month">Mois</button></div>
+   <div class="calnav"><button class="ghost sm" data-step="-1" aria-label="Précédent">‹</button><b id="cal-label"></b><button class="ghost sm" data-step="1" aria-label="Suivant">›</button><button class="ghost sm" data-today>Aujourd’hui</button></div>
+  </div>
+  <div id="cal-view"></div>
+  <div class="row-between" style="margin-top:22px"><h2>Temps bloqué</h2><button class="ghost sm" data-block>+ Bloquer du temps</button></div>
+  <div id="blocks" class="list"></div>
+ </section>
+
+ <section data-panel="hours" hidden>
+  <h2>Heures d’ouverture</h2>
+  <p class="small">Les clientes ne voient des créneaux réels que lorsque des heures sont définies ici. Sans heures, le site reçoit des demandes avec une date souhaitée.</p>
+  <div id="week-hours"></div>
+  <div class="grid2">
+   <label>Intervalle entre les créneaux<select id="s-step"><option value="15">15 min</option><option value="30">30 min</option><option value="60">60 min</option></select></label>
+   <label>Pause après chaque rendez-vous (min)<input id="s-buffer" type="number" min="0" max="120" step="5"></label>
+   <label>Délai minimum de réservation (heures)<input id="s-lead" type="number" min="0" max="336"></label>
+   <label>Réservation jusqu’à (jours à l’avance)<input id="s-horizon" type="number" min="7" max="180"></label>
+  </div>
+  <label class="check"><input type="checkbox" id="s-instant"> Confirmer automatiquement quand la durée du service est connue</label>
+  <p class="small">Sinon, chaque demande reste « en attente » jusqu’à votre confirmation.</p>
+  <button class="gold" id="save-hours">Enregistrer</button> <span class="small" id="hours-msg"></span>
+  <h2 style="margin-top:28px">Services, prix, acomptes, galerie</h2>
+  <p class="small">Les prix (en $ CA), durées, variantes, options, acompte, politique d’annulation et photos se modifient dans <a href="/admin/" target="_blank" rel="noopener">Contenu du site</a>. Tant qu’un prix est vide, le site affiche « Sur devis ».</p>
+ </section>
+
+ <section data-panel="clients" hidden>
+  <h2>Clientes</h2>
+  <input class="search" id="client-q" placeholder="Rechercher un nom, un téléphone…">
+  <div id="client-list" class="list"></div>
+ </section>
+</main>
+
+<dialog id="dlg"><form method="dialog" id="dlg-form"><div id="dlg-body"></div><div class="dlg-actions"><button class="ghost" value="cancel" formnovalidate>Fermer</button><button class="gold" id="dlg-ok" value="ok">OK</button></div></form></dialog>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script id="svc" type="application/json"></script>
+<script src="/gestion/app.js" defer></script>
+</body>
+</html>

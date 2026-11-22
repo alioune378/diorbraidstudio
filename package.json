@@ -1,0 +1,8 @@
+{
+  "name": "diorbraidstudio",
+  "private": true,
+  "description": "Dior Braid Studio — site + booking functions",
+  "dependencies": {
+    "@netlify/blobs": "^8.1.0"
+  }
+}

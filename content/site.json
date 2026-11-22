@@ -1,125 +1,801 @@
 {
-  "_readme": "Dior Braid Studio content. Status: READY = public, PENDING = hidden or fallback shown, DRAFT = editable but never published. Prices are in CAD; leave price null to show 'Sur devis'. Duration in minutes; leave null to show 'Durée à confirmer'. Edit from /admin or directly in this file.",
-  "business": {
-    "name": "Dior Braid Studio",
-    "tagline": { "fr": "Luxury Braiding Experience", "en": "Luxury Braiding Experience" },
-    "phone": "+1 (438) 922-9243",
-    "phone_href": "+14389229243",
-    "email": "diorbraidstudio@gmail.com",
-    "whatsapp": { "status": "PENDING", "number": "14389229243" },
-    "location": {
-      "display_mode": "city",
-      "city": "Laval, Québec, Canada",
-      "street_address": { "status": "PENDING", "value": "" }
-    },
-    "hours": { "status": "PENDING", "text": { "fr": "", "en": "" } },
-    "social": [
-      { "status": "PENDING", "network": "Instagram", "url": "" },
-      { "status": "PENDING", "network": "TikTok", "url": "" },
-      { "status": "PENDING", "network": "Facebook", "url": "" }
-    ],
-    "site_url": "https://diorbraidstudio.netlify.app"
+ "_readme": "Dior Braid Studio content. Status: READY = public, PENDING = hidden or fallback shown, DRAFT = editable but never published. Prices are in CAD; leave price null to show 'Sur devis'. Duration in minutes; leave null to show 'Durée à confirmer'. Edit from /admin or directly in this file.",
+ "business": {
+  "name": "Dior Braid Studio",
+  "tagline": {
+   "fr": "Luxury Braiding Experience",
+   "en": "Luxury Braiding Experience"
   },
-  "booking": {
-    "mode": "request",
-    "_mode_help": "request = customers send a request that Dior confirms. scheduler = customers pick a real time slot in the online booking calendar (set scheduler_url).",
-    "scheduler_name": "Square Appointments",
-    "scheduler_url": "",
-    "deposit": { "status": "PENDING", "text": { "fr": "", "en": "" } },
-    "cancellation_policy": { "status": "PENDING", "text": { "fr": "", "en": "" } }
+  "phone": "+1 (438) 922-9243",
+  "phone_href": "+14389229243",
+  "email": "diorbraidstudio@gmail.com",
+  "whatsapp": {
+   "status": "PENDING",
+   "number": "14389229243"
   },
-  "home": {
-    "hero_title": { "fr": "L’art du tressage,<br><em>haute couture.</em>", "en": "The art of braiding,<br><em>haute couture.</em>" },
-    "hero_text": {
-      "fr": "Un studio privé à Laval, sur rendez-vous, où un savoir-faire sénégalais de plus de quinze ans rencontre le soin du détail.",
-      "en": "A private studio in Laval, by appointment, where more than fifteen years of Senegalese braiding know-how meet a care for detail."
-    },
-    "years": 15
+  "location": {
+   "display_mode": "city",
+   "city": "Laval, Québec, Canada",
+   "street_address": {
+    "status": "PENDING",
+    "value": ""
+   }
   },
-  "founder": {
-    "status": "READY",
-    "bio": {
-      "fr": "Dior a appris le tressage dans la tradition sénégalaise, où la coiffure se transmet de main en main. Plus de quinze ans plus tard, elle reçoit ses clientes dans son propre studio privé à Laval : un espace calme, pensé pour prendre le temps de bien faire.",
-      "en": "Dior learned braiding in the Senegalese tradition, where hairstyling is passed down from hand to hand. More than fifteen years later, she welcomes her clients in her own private studio in Laval: a calm space designed for taking the time to do things right."
-    },
-    "portrait": { "status": "PENDING", "src": "" }
+  "hours": {
+   "status": "PENDING",
+   "text": {
+    "fr": "",
+    "en": ""
+   }
   },
-  "signature": {
-    "title": { "fr": "La Signature Dior", "en": "La Signature Dior" },
-    "quote": {
-      "fr": "Des raies nettes, une tension juste, des finitions soignées : chaque coiffure est réalisée pour vous, à votre rythme.",
-      "en": "Clean parts, the right tension, careful finishing: every style is made for you, at your pace."
-    },
-    "pillars": [
-      { "fr": "Précision", "en": "Precision", "text": { "fr": "Des séparations nettes et régulières, tracées avec patience.", "en": "Clean, even parts, drawn with patience." } },
-      { "fr": "Soin", "en": "Care", "text": { "fr": "Le respect du cuir chevelu et de vos cheveux naturels avant tout.", "en": "Respect for your scalp and natural hair, first and foremost." } },
-      { "fr": "Tenue", "en": "Longevity", "text": { "fr": "Des finitions pensées pour durer et rester belles.", "en": "Finishing designed to last and stay beautiful." } }
-    ]
-  },
-  "services": [
-    {
-      "id": "locs", "status": "READY",
-      "name": { "fr": "Microlocs & Locs", "en": "Microlocs & Locs" },
-      "description": { "fr": "Installation et entretien de microlocs et de locs, réalisés avec précision.", "en": "Installation and maintenance of microlocs and locs, done with precision." },
-      "image": "", "variations": [], "duration_min": null, "price_cad": null,
-      "preparation": { "status": "PENDING", "fr": "", "en": "" },
-      "addons": [], "sizes": true, "lengths": true
-    },
-    {
-      "id": "braids", "status": "READY",
-      "name": { "fr": "Tresses & Nattes", "en": "Braids & Cornrows" },
-      "description": { "fr": "Tresses et nattes collées, des plus classiques aux motifs les plus graphiques.", "en": "Braids and cornrows, from timeless classics to graphic patterns." },
-      "image": "", "variations": [], "duration_min": null, "price_cad": null,
-      "preparation": { "status": "PENDING", "fr": "", "en": "" },
-      "addons": [], "sizes": true, "lengths": true
-    },
-    {
-      "id": "twists", "status": "READY",
-      "name": { "fr": "Twists", "en": "Twists" },
-      "description": { "fr": "Twists réalisés avec soin, pour un style protecteur élégant.", "en": "Carefully crafted twists for an elegant protective style." },
-      "image": "", "variations": [], "duration_min": null, "price_cad": null,
-      "preparation": { "status": "PENDING", "fr": "", "en": "" },
-      "addons": [], "sizes": true, "lengths": true
-    },
-    {
-      "id": "tissage", "status": "READY",
-      "name": { "fr": "Tissage", "en": "Weave (Tissage)" },
-      "description": { "fr": "Pose de tissage soignée, avec une base tressée nette.", "en": "A carefully installed weave over a neat braided base." },
-      "image": "", "variations": [], "duration_min": null, "price_cad": null,
-      "preparation": { "status": "PENDING", "fr": "", "en": "" },
-      "addons": [], "sizes": false, "lengths": true
-    },
-    {
-      "id": "kids", "status": "READY",
-      "name": { "fr": "Tresses enfants", "en": "Kids Braids" },
-      "description": { "fr": "Des coiffures adaptées aux enfants, réalisées avec douceur et patience.", "en": "Styles adapted for children, done gently and patiently." },
-      "image": "", "variations": [], "duration_min": null, "price_cad": null,
-      "preparation": { "status": "PENDING", "fr": "", "en": "" },
-      "addons": [], "sizes": true, "lengths": true
-    },
-    {
-      "id": "treatments", "status": "READY",
-      "name": { "fr": "Soins capillaires", "en": "Hair Treatments" },
-      "description": { "fr": "Des soins pour préparer, nourrir et protéger vos cheveux.", "en": "Treatments to prepare, nourish and protect your hair." },
-      "image": "", "variations": [], "duration_min": null, "price_cad": null,
-      "preparation": { "status": "PENDING", "fr": "", "en": "" },
-      "addons": [], "sizes": false, "lengths": false
-    }
+  "social": [
+   {
+    "status": "PENDING",
+    "network": "Instagram",
+    "url": ""
+   },
+   {
+    "status": "PENDING",
+    "network": "TikTok",
+    "url": ""
+   },
+   {
+    "status": "PENDING",
+    "network": "Facebook",
+    "url": ""
+   }
   ],
-  "gallery": {
-    "categories": ["locs", "braids", "twists", "tissage", "kids", "treatments"],
-    "items": []
+  "site_url": "https://diorbraidstudio.netlify.app"
+ },
+ "booking": {
+  "mode": "request",
+  "_mode_help": "request = customers send a request that Dior confirms. scheduler = customers pick a real time slot in the online booking calendar (set scheduler_url).",
+  "scheduler_name": "Square Appointments",
+  "scheduler_url": "",
+  "deposit": {
+   "status": "PENDING",
+   "text": {
+    "fr": "",
+    "en": ""
+   }
   },
-  "testimonials": [],
-  "faq": [],
-  "journal": {
-    "topics": [
-      { "fr": "Prendre soin de ses tresses au quotidien", "en": "Caring for your braids day to day" },
-      { "fr": "Les coiffures protectrices, expliquées", "en": "Protective styles, explained" },
-      { "fr": "Bien préparer ses cheveux avant le rendez-vous", "en": "Preparing your hair before your appointment" },
-      { "fr": "Entretenir ses locs et microlocs", "en": "Maintaining locs and microlocs" }
-    ],
-    "articles": []
+  "cancellation_policy": {
+   "status": "PENDING",
+   "text": {
+    "fr": "",
+    "en": ""
+   }
+  }
+ },
+ "home": {
+  "hero_title": {
+   "fr": "L’Art du Tressage <em>Haute Couture</em>",
+   "en": "The Art of <em>Haute Couture</em> Braiding"
   },
-  "credit": { "name": "Dalal Technologies", "url": "https://dalaltechnologies.com" }
+  "hero_text": {
+   "fr": "Un studio privé, sur rendez-vous, où l’expertise, la beauté et le soin des cheveux se rencontrent pour une expérience capillaire d’exception.",
+   "en": "A private, by-appointment studio where expertise, beauty and hair care come together for an exceptional experience."
+  },
+  "years": 15,
+  "hero_sub": {
+   "fr": "Plus de 15 ans de maîtrise du tressage, du Sénégal à Laval.",
+   "en": "More than 15 years of braiding mastery, from Senegal to Laval."
+  },
+  "heritage_image": "/assets/inspiration/jumbo-box-l.webp"
+ },
+ "founder": {
+  "status": "READY",
+  "bio": {
+   "fr": "Dior a appris le tressage dans la tradition sénégalaise, où la coiffure se transmet de main en main. Plus de quinze ans plus tard, elle reçoit ses clientes dans son propre studio privé à Laval : un espace calme, pensé pour prendre le temps de bien faire.",
+   "en": "Dior learned braiding in the Senegalese tradition, where hairstyling is passed down from hand to hand. More than fifteen years later, she welcomes her clients in her own private studio in Laval: a calm space designed for taking the time to do things right."
+  },
+  "portrait": {
+   "status": "PENDING",
+   "src": ""
+  }
+ },
+ "signature": {
+  "title": {
+   "fr": "La Signature Dior",
+   "en": "La Signature Dior"
+  },
+  "quote": {
+   "fr": "Un tressage soigné, des finitions impeccables, des cheveux respectés et une tenue longue durée. Chez Dior Braid Studio, chaque coiffure est une création sur mesure, pensée pour vous.",
+   "en": "Careful braiding, impeccable finishing, respected hair and long-lasting results. At Dior Braid Studio, every style is a made-to-measure creation, designed for you."
+  },
+  "pillars": [
+   {
+    "fr": "Précision",
+    "en": "Precision",
+    "text": {
+     "fr": "Des séparations nettes et régulières, tracées avec patience.",
+     "en": "Clean, even parts, drawn with patience."
+    }
+   },
+   {
+    "fr": "Soin",
+    "en": "Care",
+    "text": {
+     "fr": "Le respect du cuir chevelu et de vos cheveux naturels avant tout.",
+     "en": "Respect for your scalp and natural hair, first and foremost."
+    }
+   },
+   {
+    "fr": "Tenue",
+    "en": "Longevity",
+    "text": {
+     "fr": "Des finitions pensées pour durer et rester belles.",
+     "en": "Finishing designed to last and stay beautiful."
+    }
+   }
+  ],
+  "image": "/assets/inspiration/hands-cornrows-l.webp",
+  "headline": {
+   "fr": "L’Excellence du Geste, <em>la Beauté du Détail</em>",
+   "en": "Excellence in Every Gesture, <em>Beauty in Every Detail</em>"
+  }
+ },
+ "services": [
+  {
+   "id": "locs",
+   "status": "READY",
+   "name": {
+    "fr": "Microlocs & Locs",
+    "en": "Microlocs & Locs"
+   },
+   "description": {
+    "fr": "Installation et entretien de microlocs et de locs, réalisés avec précision.",
+    "en": "Installation and maintenance of microlocs and locs, done with precision."
+   },
+   "image": "/assets/inspiration/goddess-long-l.webp",
+   "variations": [
+    {
+     "status": "READY",
+     "name": {
+      "fr": "Installation de microlocs",
+      "en": "Microlocs installation"
+     },
+     "price_cad": null,
+     "duration_min": null
+    },
+    {
+     "status": "READY",
+     "name": {
+      "fr": "Installation de locs",
+      "en": "Locs installation"
+     },
+     "price_cad": null,
+     "duration_min": null
+    },
+    {
+     "status": "READY",
+     "name": {
+      "fr": "Resserrage / entretien",
+      "en": "Retwist / maintenance"
+     },
+     "price_cad": null,
+     "duration_min": null
+    }
+   ],
+   "duration_min": null,
+   "price_cad": null,
+   "preparation": {
+    "status": "PENDING",
+    "fr": "",
+    "en": ""
+   },
+   "addons": [
+    {
+     "status": "READY",
+     "name": {
+      "fr": "Shampooing préparatoire",
+      "en": "Prep shampoo"
+     },
+     "price_cad": null
+    },
+    {
+     "status": "READY",
+     "name": {
+      "fr": "Soin profond / hydratation",
+      "en": "Deep conditioning"
+     },
+     "price_cad": null
+    },
+    {
+     "status": "READY",
+     "name": {
+      "fr": "Finitions (boucles, baby hairs…)",
+      "en": "Finishing (curls, baby hairs…)"
+     },
+     "price_cad": null
+    },
+    {
+     "status": "READY",
+     "name": {
+      "fr": "Accessoires décoratifs",
+      "en": "Hair accessories"
+     },
+     "price_cad": null
+    }
+   ],
+   "sizes": true,
+   "lengths": true
+  },
+  {
+   "id": "braids",
+   "status": "READY",
+   "name": {
+    "fr": "Tresses & Nattes",
+    "en": "Braids & Cornrows"
+   },
+   "description": {
+    "fr": "Tresses et nattes collées, des plus classiques aux motifs les plus graphiques.",
+    "en": "Braids and cornrows, from timeless classics to graphic patterns."
+   },
+   "image": "/assets/inspiration/feedin-cornrows-l.webp",
+   "variations": [
+    {
+     "status": "READY",
+     "name": {
+      "fr": "Box braids",
+      "en": "Box braids"
+     },
+     "price_cad": null,
+     "duration_min": null
+    },
+    {
+     "status": "READY",
+     "name": {
+      "fr": "Knotless",
+      "en": "Knotless braids"
+     },
+     "price_cad": null,
+     "duration_min": null
+    },
+    {
+     "status": "READY",
+     "name": {
+      "fr": "Cornrows / stitch braids",
+      "en": "Cornrows / stitch braids"
+     },
+     "price_cad": null,
+     "duration_min": null
+    },
+    {
+     "status": "READY",
+     "name": {
+      "fr": "Boho / goddess braids",
+      "en": "Boho / goddess braids"
+     },
+     "price_cad": null,
+     "duration_min": null
+    }
+   ],
+   "duration_min": null,
+   "price_cad": null,
+   "preparation": {
+    "status": "PENDING",
+    "fr": "",
+    "en": ""
+   },
+   "addons": [
+    {
+     "status": "READY",
+     "name": {
+      "fr": "Shampooing préparatoire",
+      "en": "Prep shampoo"
+     },
+     "price_cad": null
+    },
+    {
+     "status": "READY",
+     "name": {
+      "fr": "Soin profond / hydratation",
+      "en": "Deep conditioning"
+     },
+     "price_cad": null
+    },
+    {
+     "status": "READY",
+     "name": {
+      "fr": "Finitions (boucles, baby hairs…)",
+      "en": "Finishing (curls, baby hairs…)"
+     },
+     "price_cad": null
+    },
+    {
+     "status": "READY",
+     "name": {
+      "fr": "Accessoires décoratifs",
+      "en": "Hair accessories"
+     },
+     "price_cad": null
+    }
+   ],
+   "sizes": true,
+   "lengths": true
+  },
+  {
+   "id": "twists",
+   "status": "READY",
+   "name": {
+    "fr": "Twists",
+    "en": "Twists"
+   },
+   "description": {
+    "fr": "Twists réalisés avec soin, pour un style protecteur élégant.",
+    "en": "Carefully crafted twists for an elegant protective style."
+   },
+   "image": "/assets/inspiration/boho-knotless-l.webp",
+   "variations": [
+    {
+     "status": "READY",
+     "name": {
+      "fr": "Senegalese twists",
+      "en": "Senegalese twists"
+     },
+     "price_cad": null,
+     "duration_min": null
+    },
+    {
+     "status": "READY",
+     "name": {
+      "fr": "Passion twists",
+      "en": "Passion twists"
+     },
+     "price_cad": null,
+     "duration_min": null
+    },
+    {
+     "status": "READY",
+     "name": {
+      "fr": "Vanilles (two-strand twists)",
+      "en": "Two-strand twists"
+     },
+     "price_cad": null,
+     "duration_min": null
+    }
+   ],
+   "duration_min": null,
+   "price_cad": null,
+   "preparation": {
+    "status": "PENDING",
+    "fr": "",
+    "en": ""
+   },
+   "addons": [
+    {
+     "status": "READY",
+     "name": {
+      "fr": "Shampooing préparatoire",
+      "en": "Prep shampoo"
+     },
+     "price_cad": null
+    },
+    {
+     "status": "READY",
+     "name": {
+      "fr": "Soin profond / hydratation",
+      "en": "Deep conditioning"
+     },
+     "price_cad": null
+    },
+    {
+     "status": "READY",
+     "name": {
+      "fr": "Finitions (boucles, baby hairs…)",
+      "en": "Finishing (curls, baby hairs…)"
+     },
+     "price_cad": null
+    },
+    {
+     "status": "READY",
+     "name": {
+      "fr": "Accessoires décoratifs",
+      "en": "Hair accessories"
+     },
+     "price_cad": null
+    }
+   ],
+   "sizes": true,
+   "lengths": true
+  },
+  {
+   "id": "tissage",
+   "status": "READY",
+   "name": {
+    "fr": "Tissage",
+    "en": "Weave (Tissage)"
+   },
+   "description": {
+    "fr": "Pose de tissage soignée, avec une base tressée nette.",
+    "en": "A carefully installed weave over a neat braided base."
+   },
+   "image": "/assets/inspiration/curly-ponytail-l.webp",
+   "variations": [
+    {
+     "status": "READY",
+     "name": {
+      "fr": "Tissage complet",
+      "en": "Full sew-in"
+     },
+     "price_cad": null,
+     "duration_min": null
+    },
+    {
+     "status": "READY",
+     "name": {
+      "fr": "Tissage avec leave-out",
+      "en": "Sew-in with leave-out"
+     },
+     "price_cad": null,
+     "duration_min": null
+    }
+   ],
+   "duration_min": null,
+   "price_cad": null,
+   "preparation": {
+    "status": "PENDING",
+    "fr": "",
+    "en": ""
+   },
+   "addons": [
+    {
+     "status": "READY",
+     "name": {
+      "fr": "Shampooing préparatoire",
+      "en": "Prep shampoo"
+     },
+     "price_cad": null
+    },
+    {
+     "status": "READY",
+     "name": {
+      "fr": "Soin profond / hydratation",
+      "en": "Deep conditioning"
+     },
+     "price_cad": null
+    },
+    {
+     "status": "READY",
+     "name": {
+      "fr": "Finitions (boucles, baby hairs…)",
+      "en": "Finishing (curls, baby hairs…)"
+     },
+     "price_cad": null
+    },
+    {
+     "status": "READY",
+     "name": {
+      "fr": "Accessoires décoratifs",
+      "en": "Hair accessories"
+     },
+     "price_cad": null
+    }
+   ],
+   "sizes": false,
+   "lengths": true
+  },
+  {
+   "id": "kids",
+   "status": "READY",
+   "name": {
+    "fr": "Tresses enfants",
+    "en": "Kids Braids"
+   },
+   "description": {
+    "fr": "Des coiffures adaptées aux enfants, réalisées avec douceur et patience.",
+    "en": "Styles adapted for children, done gently and patiently."
+   },
+   "image": "/assets/inspiration/kids-box-l.webp",
+   "variations": [
+    {
+     "status": "READY",
+     "name": {
+      "fr": "Tresses avec perles",
+      "en": "Braids with beads"
+     },
+     "price_cad": null,
+     "duration_min": null
+    },
+    {
+     "status": "READY",
+     "name": {
+      "fr": "Cornrows enfants",
+      "en": "Kids cornrows"
+     },
+     "price_cad": null,
+     "duration_min": null
+    },
+    {
+     "status": "READY",
+     "name": {
+      "fr": "Box braids enfants",
+      "en": "Kids box braids"
+     },
+     "price_cad": null,
+     "duration_min": null
+    }
+   ],
+   "duration_min": null,
+   "price_cad": null,
+   "preparation": {
+    "status": "PENDING",
+    "fr": "",
+    "en": ""
+   },
+   "addons": [
+    {
+     "status": "READY",
+     "name": {
+      "fr": "Shampooing préparatoire",
+      "en": "Prep shampoo"
+     },
+     "price_cad": null
+    },
+    {
+     "status": "READY",
+     "name": {
+      "fr": "Soin profond / hydratation",
+      "en": "Deep conditioning"
+     },
+     "price_cad": null
+    },
+    {
+     "status": "READY",
+     "name": {
+      "fr": "Finitions (boucles, baby hairs…)",
+      "en": "Finishing (curls, baby hairs…)"
+     },
+     "price_cad": null
+    },
+    {
+     "status": "READY",
+     "name": {
+      "fr": "Accessoires décoratifs",
+      "en": "Hair accessories"
+     },
+     "price_cad": null
+    }
+   ],
+   "sizes": true,
+   "lengths": true
+  },
+  {
+   "id": "treatments",
+   "status": "READY",
+   "name": {
+    "fr": "Soins capillaires",
+    "en": "Hair Treatments"
+   },
+   "description": {
+    "fr": "Des soins pour préparer, nourrir et protéger vos cheveux.",
+    "en": "Treatments to prepare, nourish and protect your hair."
+   },
+   "image": "/assets/inspiration/short-cornrows-l.webp",
+   "variations": [
+    {
+     "status": "READY",
+     "name": {
+      "fr": "Soin profond / hydratation",
+      "en": "Deep conditioning"
+     },
+     "price_cad": null,
+     "duration_min": null
+    },
+    {
+     "status": "READY",
+     "name": {
+      "fr": "Lavage & préparation",
+      "en": "Wash & prep"
+     },
+     "price_cad": null,
+     "duration_min": null
+    }
+   ],
+   "duration_min": null,
+   "price_cad": null,
+   "preparation": {
+    "status": "PENDING",
+    "fr": "",
+    "en": ""
+   },
+   "addons": [],
+   "sizes": false,
+   "lengths": false
+  }
+ ],
+ "gallery": {
+  "categories": [
+   "locs",
+   "braids",
+   "twists",
+   "tissage",
+   "kids",
+   "treatments"
+  ],
+  "items": [
+   {
+    "status": "READY",
+    "inspiration": true,
+    "image": "/assets/inspiration/boho-knotless-l.webp",
+    "thumb": "/assets/inspiration/boho-knotless-s.webp",
+    "category": "braids",
+    "caption": {
+     "fr": "Boho knotless",
+     "en": "Boho knotless braids"
+    },
+    "alt": {
+     "fr": "Boho knotless",
+     "en": "Boho knotless braids"
+    }
+   },
+   {
+    "status": "READY",
+    "inspiration": true,
+    "image": "/assets/inspiration/stitch-cornrows-l.webp",
+    "thumb": "/assets/inspiration/stitch-cornrows-s.webp",
+    "category": "braids",
+    "caption": {
+     "fr": "Stitch braids",
+     "en": "Stitch braids"
+    },
+    "alt": {
+     "fr": "Stitch braids",
+     "en": "Stitch braids"
+    }
+   },
+   {
+    "status": "READY",
+    "inspiration": true,
+    "image": "/assets/inspiration/goddess-long-l.webp",
+    "thumb": "/assets/inspiration/goddess-long-s.webp",
+    "category": "locs",
+    "caption": {
+     "fr": "Goddess braids, longueur extra",
+     "en": "Extra-long goddess braids"
+    },
+    "alt": {
+     "fr": "Goddess braids, longueur extra",
+     "en": "Extra-long goddess braids"
+    }
+   },
+   {
+    "status": "READY",
+    "inspiration": true,
+    "image": "/assets/inspiration/jumbo-box-l.webp",
+    "thumb": "/assets/inspiration/jumbo-box-s.webp",
+    "category": "braids",
+    "caption": {
+     "fr": "Box braids & bijoux dorés",
+     "en": "Box braids with gold cuffs"
+    },
+    "alt": {
+     "fr": "Box braids & bijoux dorés",
+     "en": "Box braids with gold cuffs"
+    }
+   },
+   {
+    "status": "READY",
+    "inspiration": true,
+    "image": "/assets/inspiration/kids-box-l.webp",
+    "thumb": "/assets/inspiration/kids-box-s.webp",
+    "category": "kids",
+    "caption": {
+     "fr": "Box braids enfant, pointes bouclées",
+     "en": "Kids box braids with curly ends"
+    },
+    "alt": {
+     "fr": "Box braids enfant, pointes bouclées",
+     "en": "Kids box braids with curly ends"
+    }
+   },
+   {
+    "status": "READY",
+    "inspiration": true,
+    "image": "/assets/inspiration/curly-ponytail-l.webp",
+    "thumb": "/assets/inspiration/curly-ponytail-s.webp",
+    "category": "tissage",
+    "caption": {
+     "fr": "Queue bouclée & tresses",
+     "en": "Curly ponytail with braids"
+    },
+    "alt": {
+     "fr": "Queue bouclée & tresses",
+     "en": "Curly ponytail with braids"
+    }
+   },
+   {
+    "status": "READY",
+    "inspiration": true,
+    "image": "/assets/inspiration/feedin-cornrows-l.webp",
+    "thumb": "/assets/inspiration/feedin-cornrows-s.webp",
+    "category": "braids",
+    "caption": {
+     "fr": "Feed-in cornrows",
+     "en": "Feed-in cornrows"
+    },
+    "alt": {
+     "fr": "Feed-in cornrows",
+     "en": "Feed-in cornrows"
+    }
+   },
+   {
+    "status": "READY",
+    "inspiration": true,
+    "image": "/assets/inspiration/cornrows-top-l.webp",
+    "thumb": "/assets/inspiration/cornrows-top-s.webp",
+    "category": "braids",
+    "caption": {
+     "fr": "Cornrows en courbes",
+     "en": "Curved cornrows"
+    },
+    "alt": {
+     "fr": "Cornrows en courbes",
+     "en": "Curved cornrows"
+    }
+   },
+   {
+    "status": "READY",
+    "inspiration": true,
+    "image": "/assets/inspiration/short-cornrows-l.webp",
+    "thumb": "/assets/inspiration/short-cornrows-s.webp",
+    "category": "treatments",
+    "caption": {
+     "fr": "Cornrows courtes",
+     "en": "Short cornrows"
+    },
+    "alt": {
+     "fr": "Cornrows courtes",
+     "en": "Short cornrows"
+    }
+   },
+   {
+    "status": "READY",
+    "inspiration": true,
+    "image": "/assets/inspiration/hands-cornrows-l.webp",
+    "thumb": "/assets/inspiration/hands-cornrows-s.webp",
+    "category": "twists",
+    "caption": {
+     "fr": "Le geste, en cours de tressage",
+     "en": "Braiding in progress"
+    },
+    "alt": {
+     "fr": "Le geste, en cours de tressage",
+     "en": "Braiding in progress"
+    }
+   }
+  ]
+ },
+ "testimonials": [],
+ "faq": [],
+ "journal": {
+  "topics": [
+   {
+    "fr": "Prendre soin de ses tresses au quotidien",
+    "en": "Caring for your braids day to day"
+   },
+   {
+    "fr": "Les coiffures protectrices, expliquées",
+    "en": "Protective styles, explained"
+   },
+   {
+    "fr": "Bien préparer ses cheveux avant le rendez-vous",
+    "en": "Preparing your hair before your appointment"
+   },
+   {
+    "fr": "Entretenir ses locs et microlocs",
+    "en": "Maintaining locs and microlocs"
+   }
+  ],
+  "articles": []
+ },
+ "credit": {
+  "name": "Dalal Technologies",
+  "url": "https://dalaltechnologies.com"
+ },
+ "inspiration_images": {
+  "enabled": true,
+  "_help": "true = the photos are temporary inspiration images (not Dior's work): they are labelled and the site is hidden from search engines. Set to false once Dior's own photos replace them."
+ }
 }
