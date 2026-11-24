@@ -81,7 +81,7 @@
    "fr": "Plus de 15 ans de maîtrise du tressage, du Sénégal à Laval.",
    "en": "More than 15 years of braiding mastery, from Senegal to Laval."
   },
-  "heritage_image": "/assets/work/boho-knotless-highlights-l.webp"
+  "heritage_image": "/assets/founder/dior-l.webp"
  },
  "founder": {
   "status": "READY",
@@ -90,8 +90,8 @@
    "en": "Dior learned braiding in the Senegalese tradition, where hairstyling is passed down from hand to hand. More than fifteen years later, she welcomes her clients in her own private studio in Laval: a calm space designed for taking the time to do things right."
   },
   "portrait": {
-   "status": "PENDING",
-   "src": ""
+   "status": "READY",
+   "src": "/assets/founder/dior-l.webp"
   }
  },
  "signature": {
