@@ -565,6 +565,8 @@ def page_service(s, l):
     rel = [(i, g) for i, g in enumerate(allg) if g.get("category") == s["id"]][:8]
     relh = "".join(f'<button type="button" data-lb="{i}" aria-label="{e(t(l, "enlarge"))} — {e(tr(g.get("caption"), l))}"><span class="arch" style="display:block">{img_tag(g.get("thumb") or g["image"], tr(g.get("alt"), l), l=l, w=400, h=533)}</span><span class="cap">{e(tr(g.get("caption"), l))}</span></button>' for i, g in rel)
     others = "".join(f'<a href="{url("svc:" + o["id"], l)}">{e(tr(o["name"], l))}</a>' for o in svc_list() if o["id"] != s["id"])
+    chips_h = "".join('<span class="chip">' + e(tr(a["name"], l)) + '</span>' for a in adds)
+    addh = f'<div class="rv" style="margin-top:28px"><span class="k">{e(x["addons"])}</span><div class="chips">{chips_h}</div></div>' if adds else ""
     hero_img = f'<div class="arch">{img_tag(svc_img(s), tr(s["name"], l), l=l, lazy=False)}</div>'
     cta = f'<div class="hero-cta"><a class="btn" href="{book}">{e(t(l, "book_this"))} {ARR}</a></div>'
     facts = f'<dl class="facts lite"><div>{TAG}<span><dt>{e(x["price"])}</dt><dd>{e(svc_price(s, l))}</dd></span></div><div>{HOUR}<span><dt>{e(x["duration"])}</dt><dd>{e(svc_dur(s, l))}</dd></span></div></dl>'
@@ -573,7 +575,7 @@ def page_service(s, l):
  <div>
   <div class="rv"><span class="k">{e(x['styles'])}</span><p class="txt" style="margin-top:8px">{e(x['styles_sub'])}</p></div>
   <ul class="vars">{vcards or f'<li class="var"><div><b>{e(t(l, "variations_pending"))}</b></div></li>'}</ul>
-  {f'<div class="rv" style="margin-top:28px"><span class="k">{e(x["addons"])}</span><div class="chips">{"".join(f"<span class=chip>{e(tr(a['name'], l))}</span>" for a in adds)}</div></div>' if adds else ''}
+  {addh}
  </div>
  {f'<div class="svd-work"><span class="k">{e(x["work"])}</span><div class="mini" data-carousel>{relh}</div></div>' if relh else ''}
 </div></section>
