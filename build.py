@@ -494,7 +494,8 @@ def page_atelier(l):
  <div class="rv">
   <span class="k">{e(t(l, 'founder_kicker'))}</span>
   <p class="big">{e(tr(f['bio'], l))}</p>
-  <div class="stats"><div class="stat"><b>{S['home']['years']}+</b><span>{e(t(l, 'years_label'))}</span></div><div class="stat"><b>Laval</b><span>{e(t(l, 'private_studio'))}</span></div><div class="stat"><b>FR · EN</b><span>{e(t(l, 'languages_label'))}</span></div></div>
+  {''.join(f'<p class="txt" style="margin-top:14px">{e(x)}</p>' for x in (f.get('story') or {}).get(l, []))}
+  <div class="stats"><div class="stat"><b>{S['home']['years']}+</b><span>{e(t(l, 'years_label'))}</span></div><div class="stat"><b>2</b><span>{'Masters' if l == 'fr' else 'Master’s degrees'}</span></div><div class="stat"><b>3</b><span>{'Pays' if l == 'fr' else 'Countries'}</span></div></div>
  </div>
 </div></section>
 <section class="sig esp"><div class="wrap center">

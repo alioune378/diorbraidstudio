@@ -86,12 +86,26 @@
  "founder": {
   "status": "READY",
   "bio": {
-   "fr": "Dior a appris le tressage dans la tradition sénégalaise, où la coiffure se transmet de main en main. Plus de quinze ans plus tard, elle reçoit ses clientes dans son propre studio privé à Laval : un espace calme, pensé pour prendre le temps de bien faire.",
-   "en": "Dior learned braiding in the Senegalese tradition, where hairstyling is passed down from hand to hand. More than fifteen years later, she welcomes her clients in her own private studio in Laval: a calm space designed for taking the time to do things right."
+   "fr": "Chez Dior, on vient pour les tresses… et on revient pour Dior. Un sourire contagieux qui met à l’aise dès la première minute, un humour qui fait filer les heures, et des mains qui tressent depuis l’âge de 15 ans. Du Sénégal à New York, du Michigan à Laval, elle a fait du tressage un art — et de chaque rendez-vous, une vraie rencontre.",
+   "en": "At Dior’s, you come for the braids… and you come back for Dior. A contagious smile that puts you at ease from the very first minute, a sense of humour that makes the hours fly by, and hands that have been braiding since she was fifteen. From Senegal to New York, from Michigan to Laval, she has turned braiding into an art — and every appointment into a real connection."
   },
   "portrait": {
    "status": "READY",
    "src": "/assets/founder/dior-l.webp"
+  },
+  "story": {
+   "fr": [
+    "Tout commence au Sénégal. À 15 ans, Dior prend ses premières mèches en main et ne les lâche plus : après l’école, elle file dans les salons, observe, pratique, recommence, jusqu’à ce que chaque séparation soit parfaitement nette. Le tressage devient son langage.",
+    "Brillante sur les bancs de l’école comme derrière la chaise, elle décroche deux masters, en tourisme d’affaires et en marketing. De ces années, elle garde le sens de l’accueil, l’exigence du détail et l’art de créer une expérience dont on se souvient.",
+    "Arrivée aux États-Unis, elle affine son savoir-faire dans des salons professionnels de New York, puis du Michigan : nouvelles techniques, nouvelles textures, clientèle exigeante. Au Canada, deux années en salons de tresses confirment ce qu’elle savait déjà : ses clientes reviennent pour elle. Elle ouvre alors son propre studio privé à Laval.",
+    "Ici, l’humain passe avant tout. On parle de la vie, on rit beaucoup, on se confie parfois — et l’on repart avec une coiffure impeccable et le cœur léger. Ses clientes vous le diront mieux qu’elle."
+   ],
+   "en": [
+    "It all began in Senegal. At fifteen, Dior picked up her first strands and never let go: after school she headed straight to the salons to watch, practise and start again, until every part was perfectly clean. Braiding became her language.",
+    "As sharp in the classroom as behind the chair, she went on to earn two master’s degrees, in business tourism and in marketing. From those years she kept a gift for hospitality, an eye for detail and the art of creating an experience you remember.",
+    "In the United States she refined her craft in professional salons in New York, then Michigan: new techniques, new textures, demanding clients. In Canada, two years in braiding salons confirmed what she already knew: her clients kept coming back for her. So she opened her own private studio in Laval.",
+    "Here, people come first. You talk about life, you laugh a lot, sometimes you open up — and you leave with a flawless style and a lighter heart. Her clients will tell you better than she can."
+   ]
   }
  },
  "signature": {
