@@ -524,7 +524,7 @@ def page_journal(l):
 def page_booking(l):
     sched = BK.get("mode") == "scheduler" and BK.get("scheduler_url")
     data = svc_payload(l)
-    pick = "".join(f"""<label><input type="radio" name="service" value="{e(s['name'])}" data-id="{s['id']}"><span class="pc"><span class="arch" style="display:block">{img_tag(s['img'].replace('-l.webp', '-s.webp') if '/inspiration/' in s['img'] else s['img'], '', l=l, w=400, h=530)}</span><b>{e(s['name'])}</b><span class="tick">{TICK}</span></span></label>""" for s in data)
+    pick = "".join(f"""<label><input type="radio" name="service" value="{e(s['name'])}" data-id="{s['id']}"><span class="pc"><span class="arch" style="display:block">{img_tag(s['img'].replace('-l.webp', '-s.webp') if ('/inspiration/' in s['img'] or '/work/' in s['img']) else s['img'], '', l=l, w=400, h=530)}</span><b>{e(s['name'])}</b><span class="tick">{TICK}</span></span></label>""" for s in data)
 
     def pills(name, keys, typ="radio"):
         return '<div class="pills">' + "".join(f'<label><input type="{typ}" name="{name}" value="{e(t(l, k))}"><span>{e(t(l, k))}</span></label>' for k in keys) + "</div>"

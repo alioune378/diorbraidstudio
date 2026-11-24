@@ -81,7 +81,7 @@
    "fr": "Plus de 15 ans de maîtrise du tressage, du Sénégal à Laval.",
    "en": "More than 15 years of braiding mastery, from Senegal to Laval."
   },
-  "heritage_image": "/assets/inspiration/jumbo-box-l.webp"
+  "heritage_image": "/assets/work/boho-knotless-highlights-l.webp"
  },
  "founder": {
   "status": "READY",
@@ -129,7 +129,7 @@
     }
    }
   ],
-  "image": "/assets/inspiration/hands-cornrows-l.webp",
+  "image": "/assets/work/men-cornrows-top-l.webp",
   "headline": {
    "fr": "L’Excellence du Geste, <em>la Beauté du Détail</em>",
    "en": "Excellence in Every Gesture, <em>Beauty in Every Detail</em>"
@@ -147,7 +147,7 @@
     "fr": "Installation et entretien de microlocs et de locs, réalisés avec précision.",
     "en": "Installation and maintenance of microlocs and locs, done with precision."
    },
-   "image": "/assets/inspiration/goddess-long-l.webp",
+   "image": "/assets/work/micro-braids-curly-l.webp",
    "variations": [
     {
      "status": "READY",
@@ -232,7 +232,7 @@
     "fr": "Tresses et nattes collées, des plus classiques aux motifs les plus graphiques.",
     "en": "Braids and cornrows, from timeless classics to graphic patterns."
    },
-   "image": "/assets/inspiration/feedin-cornrows-l.webp",
+   "image": "/assets/work/boho-knotless-parts-l.webp",
    "variations": [
     {
      "status": "READY",
@@ -326,7 +326,7 @@
     "fr": "Twists réalisés avec soin, pour un style protecteur élégant.",
     "en": "Carefully crafted twists for an elegant protective style."
    },
-   "image": "/assets/inspiration/boho-knotless-l.webp",
+   "image": "/assets/work/twists-parts-l.webp",
    "variations": [
     {
      "status": "READY",
@@ -411,7 +411,7 @@
     "fr": "Pose de tissage soignée, avec une base tressée nette.",
     "en": "A carefully installed weave over a neat braided base."
    },
-   "image": "/assets/inspiration/curly-ponytail-l.webp",
+   "image": "/assets/studio/studio-l.webp",
    "variations": [
     {
      "status": "READY",
@@ -487,7 +487,7 @@
     "fr": "Des coiffures adaptées aux enfants, réalisées avec douceur et patience.",
     "en": "Styles adapted for children, done gently and patiently."
    },
-   "image": "/assets/inspiration/kids-box-l.webp",
+   "image": "/assets/work/kids-curly-box-l.webp",
    "variations": [
     {
      "status": "READY",
@@ -572,7 +572,7 @@
     "fr": "Des soins pour préparer, nourrir et protéger vos cheveux.",
     "en": "Treatments to prepare, nourish and protect your hair."
    },
-   "image": "/assets/inspiration/short-cornrows-l.webp",
+   "image": "/assets/studio/studio-m.webp",
    "variations": [
     {
      "status": "READY",
@@ -617,152 +617,257 @@
   "items": [
    {
     "status": "READY",
-    "inspiration": true,
-    "image": "/assets/inspiration/boho-knotless-l.webp",
-    "thumb": "/assets/inspiration/boho-knotless-s.webp",
+    "inspiration": false,
+    "image": "/assets/work/boho-knotless-highlights-l.webp",
+    "thumb": "/assets/work/boho-knotless-highlights-s.webp",
     "category": "braids",
     "caption": {
-     "fr": "Boho knotless",
-     "en": "Boho knotless braids"
+     "fr": "Boho knotless méchées",
+     "en": "Highlighted boho knotless"
     },
     "alt": {
-     "fr": "Boho knotless",
-     "en": "Boho knotless braids"
+     "fr": "Boho knotless méchées — réalisation de Dior",
+     "en": "Highlighted boho knotless — styled by Dior"
     }
    },
    {
     "status": "READY",
-    "inspiration": true,
-    "image": "/assets/inspiration/stitch-cornrows-l.webp",
-    "thumb": "/assets/inspiration/stitch-cornrows-s.webp",
+    "inspiration": false,
+    "image": "/assets/work/stitch-spiral-l.webp",
+    "thumb": "/assets/work/stitch-spiral-s.webp",
     "category": "braids",
     "caption": {
-     "fr": "Stitch braids",
-     "en": "Stitch braids"
+     "fr": "Stitch braids en spirale",
+     "en": "Spiral stitch braids"
     },
     "alt": {
-     "fr": "Stitch braids",
-     "en": "Stitch braids"
+     "fr": "Stitch braids en spirale — réalisation de Dior",
+     "en": "Spiral stitch braids — styled by Dior"
     }
    },
    {
     "status": "READY",
-    "inspiration": true,
-    "image": "/assets/inspiration/goddess-long-l.webp",
-    "thumb": "/assets/inspiration/goddess-long-s.webp",
-    "category": "locs",
+    "inspiration": false,
+    "image": "/assets/work/twists-parts-l.webp",
+    "thumb": "/assets/work/twists-parts-s.webp",
+    "category": "twists",
     "caption": {
-     "fr": "Goddess braids, longueur extra",
-     "en": "Extra-long goddess braids"
+     "fr": "Twists, séparations nettes",
+     "en": "Twists with clean parts"
     },
     "alt": {
-     "fr": "Goddess braids, longueur extra",
-     "en": "Extra-long goddess braids"
+     "fr": "Twists, séparations nettes — réalisation de Dior",
+     "en": "Twists with clean parts — styled by Dior"
     }
    },
    {
     "status": "READY",
-    "inspiration": true,
-    "image": "/assets/inspiration/jumbo-box-l.webp",
-    "thumb": "/assets/inspiration/jumbo-box-s.webp",
+    "inspiration": false,
+    "image": "/assets/work/blonde-boho-curls-l.webp",
+    "thumb": "/assets/work/blonde-boho-curls-s.webp",
     "category": "braids",
     "caption": {
-     "fr": "Box braids & bijoux dorés",
-     "en": "Box braids with gold cuffs"
+     "fr": "Boho knotless blondes bouclées",
+     "en": "Blonde curly boho knotless"
     },
     "alt": {
-     "fr": "Box braids & bijoux dorés",
-     "en": "Box braids with gold cuffs"
+     "fr": "Boho knotless blondes bouclées — réalisation de Dior",
+     "en": "Blonde curly boho knotless — styled by Dior"
     }
    },
    {
     "status": "READY",
-    "inspiration": true,
-    "image": "/assets/inspiration/kids-box-l.webp",
-    "thumb": "/assets/inspiration/kids-box-s.webp",
+    "inspiration": false,
+    "image": "/assets/work/men-cornrows-top-l.webp",
+    "thumb": "/assets/work/men-cornrows-top-s.webp",
+    "category": "braids",
+    "caption": {
+     "fr": "Cornrows homme",
+     "en": "Men’s cornrows"
+    },
+    "alt": {
+     "fr": "Cornrows homme — réalisation de Dior",
+     "en": "Men’s cornrows — styled by Dior"
+    }
+   },
+   {
+    "status": "READY",
+    "inspiration": false,
+    "image": "/assets/work/kids-curly-box-l.webp",
+    "thumb": "/assets/work/kids-curly-box-s.webp",
     "category": "kids",
     "caption": {
      "fr": "Box braids enfant, pointes bouclées",
      "en": "Kids box braids with curly ends"
     },
     "alt": {
-     "fr": "Box braids enfant, pointes bouclées",
-     "en": "Kids box braids with curly ends"
+     "fr": "Box braids enfant, pointes bouclées — réalisation de Dior",
+     "en": "Kids box braids with curly ends — styled by Dior"
     }
    },
    {
     "status": "READY",
-    "inspiration": true,
-    "image": "/assets/inspiration/curly-ponytail-l.webp",
-    "thumb": "/assets/inspiration/curly-ponytail-s.webp",
-    "category": "tissage",
-    "caption": {
-     "fr": "Queue bouclée & tresses",
-     "en": "Curly ponytail with braids"
-    },
-    "alt": {
-     "fr": "Queue bouclée & tresses",
-     "en": "Curly ponytail with braids"
-    }
-   },
-   {
-    "status": "READY",
-    "inspiration": true,
-    "image": "/assets/inspiration/feedin-cornrows-l.webp",
-    "thumb": "/assets/inspiration/feedin-cornrows-s.webp",
+    "inspiration": false,
+    "image": "/assets/work/knotless-copper-back-l.webp",
+    "thumb": "/assets/work/knotless-copper-back-s.webp",
     "category": "braids",
     "caption": {
-     "fr": "Feed-in cornrows",
-     "en": "Feed-in cornrows"
+     "fr": "Boho knotless cuivrées",
+     "en": "Copper boho knotless"
     },
     "alt": {
-     "fr": "Feed-in cornrows",
-     "en": "Feed-in cornrows"
+     "fr": "Boho knotless cuivrées — réalisation de Dior",
+     "en": "Copper boho knotless — styled by Dior"
     }
    },
    {
     "status": "READY",
-    "inspiration": true,
-    "image": "/assets/inspiration/cornrows-top-l.webp",
-    "thumb": "/assets/inspiration/cornrows-top-s.webp",
+    "inspiration": false,
+    "image": "/assets/work/micro-braids-curly-l.webp",
+    "thumb": "/assets/work/micro-braids-curly-s.webp",
     "category": "braids",
     "caption": {
-     "fr": "Cornrows en courbes",
-     "en": "Curved cornrows"
+     "fr": "Micro-tresses bouclées",
+     "en": "Curly micro braids"
     },
     "alt": {
-     "fr": "Cornrows en courbes",
-     "en": "Curved cornrows"
+     "fr": "Micro-tresses bouclées — réalisation de Dior",
+     "en": "Curly micro braids — styled by Dior"
     }
    },
    {
     "status": "READY",
-    "inspiration": true,
-    "image": "/assets/inspiration/short-cornrows-l.webp",
-    "thumb": "/assets/inspiration/short-cornrows-s.webp",
-    "category": "treatments",
-    "caption": {
-     "fr": "Cornrows courtes",
-     "en": "Short cornrows"
-    },
-    "alt": {
-     "fr": "Cornrows courtes",
-     "en": "Short cornrows"
-    }
-   },
-   {
-    "status": "READY",
-    "inspiration": true,
-    "image": "/assets/inspiration/hands-cornrows-l.webp",
-    "thumb": "/assets/inspiration/hands-cornrows-s.webp",
+    "inspiration": false,
+    "image": "/assets/work/twists-ombre-l.webp",
+    "thumb": "/assets/work/twists-ombre-s.webp",
     "category": "twists",
     "caption": {
-     "fr": "Le geste, en cours de tressage",
-     "en": "Braiding in progress"
+     "fr": "Twists ombrées",
+     "en": "Ombré twists"
     },
     "alt": {
-     "fr": "Le geste, en cours de tressage",
-     "en": "Braiding in progress"
+     "fr": "Twists ombrées — réalisation de Dior",
+     "en": "Ombré twists — styled by Dior"
+    }
+   },
+   {
+    "status": "READY",
+    "inspiration": false,
+    "image": "/assets/work/box-braids-l.webp",
+    "thumb": "/assets/work/box-braids-s.webp",
+    "category": "braids",
+    "caption": {
+     "fr": "Box braids classiques",
+     "en": "Classic box braids"
+    },
+    "alt": {
+     "fr": "Box braids classiques — réalisation de Dior",
+     "en": "Classic box braids — styled by Dior"
+    }
+   },
+   {
+    "status": "READY",
+    "inspiration": false,
+    "image": "/assets/work/boho-knotless-parts-l.webp",
+    "thumb": "/assets/work/boho-knotless-parts-s.webp",
+    "category": "braids",
+    "caption": {
+     "fr": "Boho knotless, séparations",
+     "en": "Boho knotless parting"
+    },
+    "alt": {
+     "fr": "Boho knotless, séparations — réalisation de Dior",
+     "en": "Boho knotless parting — styled by Dior"
+    }
+   },
+   {
+    "status": "READY",
+    "inspiration": false,
+    "image": "/assets/work/men-stitch-cornrows-l.webp",
+    "thumb": "/assets/work/men-stitch-cornrows-s.webp",
+    "category": "braids",
+    "caption": {
+     "fr": "Stitch cornrows homme",
+     "en": "Men’s stitch cornrows"
+    },
+    "alt": {
+     "fr": "Stitch cornrows homme — réalisation de Dior",
+     "en": "Men’s stitch cornrows — styled by Dior"
+    }
+   },
+   {
+    "status": "READY",
+    "inspiration": false,
+    "image": "/assets/work/mini-twists-l.webp",
+    "thumb": "/assets/work/mini-twists-s.webp",
+    "category": "twists",
+    "caption": {
+     "fr": "Mini twists",
+     "en": "Mini twists"
+    },
+    "alt": {
+     "fr": "Mini twists — réalisation de Dior",
+     "en": "Mini twists — styled by Dior"
+    }
+   },
+   {
+    "status": "READY",
+    "inspiration": false,
+    "image": "/assets/work/boho-knotless-copper-mirror-l.webp",
+    "thumb": "/assets/work/boho-knotless-copper-mirror-s.webp",
+    "category": "braids",
+    "caption": {
+     "fr": "Boho knotless cuivre & caramel",
+     "en": "Copper & caramel boho knotless"
+    },
+    "alt": {
+     "fr": "Boho knotless cuivre & caramel — réalisation de Dior",
+     "en": "Copper & caramel boho knotless — styled by Dior"
+    }
+   },
+   {
+    "status": "READY",
+    "inspiration": false,
+    "image": "/assets/work/men-cornrows-ponytail-l.webp",
+    "thumb": "/assets/work/men-cornrows-ponytail-s.webp",
+    "category": "braids",
+    "caption": {
+     "fr": "Cornrows & queue tressée",
+     "en": "Cornrows with braided ponytail"
+    },
+    "alt": {
+     "fr": "Cornrows & queue tressée — réalisation de Dior",
+     "en": "Cornrows with braided ponytail — styled by Dior"
+    }
+   },
+   {
+    "status": "READY",
+    "inspiration": false,
+    "image": "/assets/work/knotless-copper-curls-l.webp",
+    "thumb": "/assets/work/knotless-copper-curls-s.webp",
+    "category": "braids",
+    "caption": {
+     "fr": "Longueurs bouclées",
+     "en": "Curly lengths"
+    },
+    "alt": {
+     "fr": "Longueurs bouclées — réalisation de Dior",
+     "en": "Curly lengths — styled by Dior"
+    }
+   },
+   {
+    "status": "READY",
+    "inspiration": false,
+    "image": "/assets/work/twists-side-l.webp",
+    "thumb": "/assets/work/twists-side-s.webp",
+    "category": "twists",
+    "caption": {
+     "fr": "Twists, vue de profil",
+     "en": "Twists, side view"
+    },
+    "alt": {
+     "fr": "Twists, vue de profil — réalisation de Dior",
+     "en": "Twists, side view — styled by Dior"
     }
    }
   ]
@@ -795,7 +900,7 @@
   "url": "https://dalaltechnologies.com"
  },
  "inspiration_images": {
-  "enabled": true,
+  "enabled": false,
   "_help": "true = the photos are temporary inspiration images (not Dior's work): they are labelled and the site is hidden from search engines. Set to false once Dior's own photos replace them."
  }
 }
