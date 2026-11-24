@@ -977,7 +977,45 @@
         {
          "label": "Nom",
          "name": "name",
-         "widget": "string"
+         "widget": "string",
+         "hint": "Prénom + initiale (ex. : Aminata D.) — avec l’accord de la cliente"
+        },
+        {
+         "label": "Étoiles (1 à 5)",
+         "name": "rating",
+         "widget": "number",
+         "value_type": "int",
+         "min": 1,
+         "max": 5,
+         "default": 5,
+         "required": false
+        },
+        {
+         "label": "Coiffure réalisée (facultatif)",
+         "name": "service",
+         "widget": "object",
+         "required": false,
+         "collapsed": true,
+         "fields": [
+          {
+           "label": "Français",
+           "name": "fr",
+           "widget": "string",
+           "required": false
+          },
+          {
+           "label": "English",
+           "name": "en",
+           "widget": "string",
+           "required": false
+          }
+         ]
+        },
+        {
+         "label": "Date (facultatif, ex. : Novembre 2026)",
+         "name": "date",
+         "widget": "string",
+         "required": false
         },
         {
          "label": "Texte",
@@ -999,7 +1037,8 @@
           }
          ]
         }
-       ]
+       ],
+       "label_singular": "Avis"
       },
       {
        "label": "FAQ",

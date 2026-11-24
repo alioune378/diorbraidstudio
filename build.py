@@ -6,7 +6,7 @@ content/i18n.json (interface text, FR + EN) and writes the bilingual
 site into dist/. Runs as the Netlify build command: `python3 build.py`.
 Standard library only.
 """
-import json, os, shutil, html, re
+import json, os, shutil, html, re, urllib.parse
 from datetime import date
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
@@ -280,6 +280,37 @@ def final_cta(l):
 </section>"""
 
 
+REV_T = {
+    "fr": {"k": "Avis clientes", "title": "Elles en <em>parlent</em>", "sub": "Les mots de celles qui se sont assises dans le fauteuil de Dior.",
+           "empty_t": "Les premiers avis arrivent bientôt", "empty": "Vous avez déjà été coiffée par Dior ? Votre expérience compte : partagez-la en quelques mots.",
+           "leave": "Laisser un avis", "mail_subj": "Mon avis sur Dior Braid Studio", "stars": "sur 5"},
+    "en": {"k": "Client reviews", "title": "In their <em>words</em>", "sub": "From the women who have sat in Dior’s chair.",
+           "empty_t": "First reviews coming soon", "empty": "Already had your hair done by Dior? Your experience matters — share it in a few words.",
+           "leave": "Leave a review", "mail_subj": "My review of Dior Braid Studio", "stars": "out of 5"},
+}
+
+
+def reviews(l):
+    R = REV_T[l]
+    items = [r for r in S.get("testimonials", []) if ready(r) and tr(r.get("text"), l).strip() and r.get("name")]
+    mail = f"mailto:{e(B.get('email', ''))}?subject={urllib.parse.quote(R['mail_subj'])}"
+    def card(r):
+        n = max(1, min(5, int(r.get("rating") or 5)))
+        meta = " · ".join(x for x in [tr(r.get("service"), l), r.get("date") or ""] if x)
+        return (f'<figure class="rev-card rv"><div class="stars" aria-label="{n} {R["stars"]}">{"★" * n}<span aria-hidden="true">{"★" * (5 - n)}</span></div>'
+                f'<blockquote>{e(tr(r.get("text"), l))}</blockquote>'
+                f'<figcaption><b>{e(r["name"])}</b>{f"<span>{e(meta)}</span>" if meta else ""}</figcaption></figure>')
+    body = "".join(card(r) for r in items)
+    leave = f'<figure class="rev-card rev-empty rv"><span class="fleuron" style="margin:0 auto 14px"></span><h3>{e(R["empty_t"]) if not items else e(R["leave"])}</h3><p>{e(R["empty"])}</p><a class="btn ghost" href="{mail}">{e(R["leave"])} {ARR}</a></figure>'
+    return f"""
+<section class="rev marble" id="{'avis' if l == 'fr' else 'reviews'}">
+ <div class="wrap">
+  <div class="center rv"><span class="k both">{e(R['k'])}</span><h2 class="h" style="margin-top:12px">{R['title']}</h2><span class="fleuron" style="margin:14px auto"></span><p class="sub">{e(R['sub'])}</p></div>
+  <div class="rev-grid{'' if items else ' one'}">{body}{leave}</div>
+ </div>
+</section>"""
+
+
 def svc_cards(l, href_fn):
     out = []
     for s in svc_list():
@@ -362,7 +393,7 @@ def page_home(l):
  <div class="wrap" style="text-align:right;margin-top:12px"><a class="more" href="{url('gallery', l)}">{e(t(l, 'see_gallery'))} {GO}</a></div>
 </section>
 {lightbox(l)}
-""" + final_cta(l)
+""" + reviews(l) + final_cta(l)
 
 
 def phero(l, kicker, title, sub, text, cta_html, img_html):
@@ -498,6 +529,7 @@ def page_atelier(l):
   <div class="stats"><div class="stat"><b>{S['home']['years']}+</b><span>{e(t(l, 'years_label'))}</span></div><div class="stat"><b>2</b><span>{'Masters' if l == 'fr' else 'Master’s degrees'}</span></div><div class="stat"><b>3</b><span>{'Pays' if l == 'fr' else 'Countries'}</span></div></div>
  </div>
 </div></section>
+""" + reviews(l) + f"""
 <section class="sig esp"><div class="wrap center">
  <span class="k both">{e(tr(sig['title'], l))}</span>
  <h2 class="h" style="margin:12px auto 0;max-width:900px;font-size:clamp(28px,3.6vw,50px)">{tr(sig['headline'], l)}</h2>
