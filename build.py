@@ -22,6 +22,8 @@ ROUTES = {  # page id -> slug per language
     "booking":  {"fr": "reservation", "en": "booking"},
     "journal":  {"fr": "conseils",    "en": "journal"},
 }
+SVC_SLUG = {"braids": {"fr": "tresses", "en": "braids"}, "kids": {"fr": "enfants", "en": "kids"},
+            "treatments": {"fr": "soins", "en": "treatments"}, "tissage": {"fr": "tissage", "en": "weave"}}
 NAV = ["home", "atelier", "services", "gallery", "journal"]
 BASE = S["business"]["site_url"].rstrip("/")
 B = S["business"]
@@ -46,6 +48,9 @@ def ready(obj):
 
 
 def url(page, l):
+    if page.startswith("svc:"):
+        sid = page[4:]
+        return url("services", l) + SVC_SLUG.get(sid, {}).get(l, sid) + "/"
     s = ROUTES[page][l]
     return f"/{l}/" + (s + "/" if s else "")
 
@@ -185,7 +190,15 @@ def head(page, l, title, desc):
     ld = {"@context": "https://schema.org", "@type": "BeautySalon", "name": B["name"], "url": BASE + url("home", l),
           "telephone": B["phone_href"], "email": B["email"], "image": BASE + "/assets/brand/og.jpg", "logo": BASE + "/assets/brand/logo-full.png",
           "address": {"@type": "PostalAddress", "addressLocality": "Laval", "addressRegion": "QC", "addressCountry": "CA"},
-          "priceRange": "$$", "sameAs": [s["url"] for s in socials()]}
+          "sameAs": [s["url"] for s in socials()],
+          "areaServed": [{"@type": "City", "name": c} for c in ["Laval", "Montréal", "Terrebonne", "Blainville", "Saint-Eustache"]] + [{"@type": "AdministrativeArea", "name": "Grand Montréal" if l == "fr" else "Greater Montréal"}],
+          "knowsLanguage": ["fr", "en"], "founder": {"@type": "Person", "name": "Dior"},
+          "hasOfferCatalog": {"@type": "OfferCatalog", "name": "Services", "itemListElement": [{"@type": "Offer", "itemOffered": {"@type": "Service", "name": tr(s["name"], l), "url": BASE + url("svc:" + s["id"], l)}} for s in svc_list()]}}
+    graph = [ld]
+    if page == "services" or page.startswith("svc:"):
+        fq = faq_items()
+        if fq:
+            graph.append({"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": tr(f["q"], l), "acceptedAnswer": {"@type": "Answer", "text": tr(f["a"], l)}} for f in fq]})
     robots = '<meta name="robots" content="noindex,nofollow">' if INSP else '<meta name="robots" content="index,follow">'
     return f"""<!doctype html>
 <html lang="{l}-CA">
@@ -211,14 +224,15 @@ def head(page, l, title, desc):
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Playfair+Display:ital,wght@0,500;1,500&display=swap">
 <link rel="stylesheet" href="/assets/css/site.css?v={V}">
-<script type="application/ld+json">{json.dumps(ld, ensure_ascii=False)}</script>
+{"".join(f'<script type="application/ld+json">{json.dumps(g, ensure_ascii=False)}</script>' for g in graph)}
 </head>
 """
 
 
 def header(page, l):
-    links = "".join(f'<a href="{url(p, l)}"{" aria-current=page" if p == page else ""}>{e(t(l, "nav_" + p))}</a>' for p in NAV)
-    dl = "".join(f'<a href="{url(p, l)}"{" aria-current=page" if p == page else ""}>{e(t(l, "nav_" + p))}</a>' for p in NAV + ["journal"])
+    cur = "services" if page.startswith("svc:") else page
+    links = "".join(f'<a href="{url(p, l)}"{" aria-current=page" if p == cur else ""}>{e(t(l, "nav_" + p))}</a>' for p in NAV)
+    dl = "".join(f'<a href="{url(p, l)}"{" aria-current=page" if p == cur else ""}>{e(t(l, "nav_" + p))}</a>' for p in NAV + ["journal"])
     wa = whatsapp()
     return f"""<body data-page="{page}" data-lang="{l}">
 <a class="skip" href="#main">{e(t(l, 'skip'))}</a>
@@ -306,12 +320,13 @@ def reviews(l):
 <section class="rev marble" id="{'avis' if l == 'fr' else 'reviews'}">
  <div class="wrap">
   <div class="center rv"><span class="k both">{e(R['k'])}</span><h2 class="h" style="margin-top:12px">{R['title']}</h2><span class="fleuron" style="margin:14px auto"></span><p class="sub">{e(R['sub'])}</p></div>
-  <div class="rev-grid{'' if items else ' one'}">{body}{leave}</div>
+  <div class="rev-grid{'' if items else ' one'}"{' data-carousel' if items else ''}>{body}{leave}</div>
  </div>
 </section>"""
 
 
-def svc_cards(l, href_fn):
+def svc_cards(l, href_fn=None):
+    href_fn = href_fn or (lambda s: url("svc:" + s["id"], l))
     out = []
     for s in svc_list():
         alt_name = tr(s["name"], "en" if l == "fr" else "fr")
@@ -325,13 +340,14 @@ def page_home(l):
     h, sig = S["home"], S["signature"]
     items = gallery_items()[:6]
     rail = "".join(f'<button type="button" data-lb="{i}" aria-label="{e(tr(g.get("caption"), l))}"><span class="arch" style="display:block">{img_tag(g.get("thumb") or g["image"], tr(g.get("alt"), l), insp=g.get("inspiration"), l=l, w=400, h=530)}</span></button>' for i, g in enumerate(items))
-    diamonds = "".join(f'<li><a href="{url("services", l)}#{s["id"]}">{e(tr(s["name"], l))}</a></li>' for s in svc_list())
+    diamonds = "".join(f'<li><a href="{url("svc:" + s["id"], l)}">{e(tr(s["name"], l))}</a></li>' for s in svc_list())
     pillars = "".join(f'<div class="pillar rv"><span class="fleuron" style="width:60px;margin:0 auto"></span><h3>{e(tr(p, l))}</h3><p>{e(tr(p["text"], l))}</p></div>' for p in sig["pillars"])
     return f"""
 <section class="hero marble">
  {ribbon('r-tl')}
  <div class="wrap hero-grid">
   <div class="hero-copy rv">
+   <span class="k hero-k">{e(t(l, 'private_studio'))} · Laval</span>
    <h1 class="h">{h['hero_title'][l]}</h1>
    <span class="rule"></span>
    <p class="sub">{e(tr(h['hero_sub'], l))}</p>
@@ -340,7 +356,7 @@ def page_home(l):
   </div>
   <div class="hero-photo">
    <div class="arch-frame"><div class="arch"><picture><source media="(max-width:720px)" srcset="/assets/studio/studio-m.webp"><img src="/assets/studio/studio-l.webp" alt="{e(t(l, 'studio_alt'))}" width="1086" height="1448" fetchpriority="high"></picture></div></div>
-   <img class="leaf" src="/assets/brand/leaf.svg" alt="" width="120" height="200" aria-hidden="true">
+   <span class="hero-chip">{PIN} {e(t(l, 'private_studio'))} · Laval, Québec</span>
   </div>
  </div>
 </section>
@@ -367,7 +383,7 @@ def page_home(l):
 <section class="svc-band esp">
  <div class="wrap">
   <div class="band-title"><span class="k" style="gap:0">{e(t(l, 'services_main'))}</span></div>
-  <div class="cards">{svc_cards(l, lambda s: url('services', l) + '#' + s['id'])}</div>
+  <div class="cards" data-carousel>{svc_cards(l)}</div>
  </div>
 </section>
 
@@ -388,7 +404,7 @@ def page_home(l):
   <div class="look-head"><div><span class="k">{e(t(l, 'nav_gallery'))}</span><h2 class="h" style="margin-top:8px">{t(l, 'lookbook_title')}</h2></div></div>
   <span class="vline"></span>
   <p class="txt">{e(t(l, 'lookbook_text'))}</p>
-  <div class="rail">{rail}</div>
+  <div class="rail" data-carousel>{rail}</div>
  </div>
  <div class="wrap" style="text-align:right;margin-top:12px"><a class="more" href="{url('gallery', l)}">{e(t(l, 'see_gallery'))} {GO}</a></div>
 </section>
@@ -431,7 +447,7 @@ def page_services(l):
   {f'<div class="chips" aria-label="{e(t(l, "variation_label"))}">{chips}</div>' if chips else f'<p class="note">{e(t(l, "variations_pending"))}</p>'}
   <dl class="facts"><div>{TAG}<span><dt>{e(t(l, 'price_label'))}</dt><dd>{e(svc_price(s, l))}</dd></span></div><div>{HOUR}<span><dt>{e(t(l, 'duration_label'))}</dt><dd>{e(svc_dur(s, l))}</dd></span></div></dl>
   <p class="note"><strong>{e(t(l, 'prep_label'))} —</strong> {e(prep_txt)}</p>
-  <div class="sd-cta"><a class="btn small" href="{url('booking', l)}?service={s['id']}">{e(t(l, 'book_this'))} {ARR}</a></div>
+  <div class="sd-cta"><a class="btn small" href="{url('booking', l)}?service={s['id']}">{e(t(l, 'book_this'))} {ARR}</a> <a class="more" href="{url('svc:' + s['id'], l)}">{e(X[l]['details'])} {GO}</a></div>
  </div>
 </article>""")
     svc_opts = "".join(f'<option value="{s["id"]}">{e(tr(s["name"], l))}</option>' for s in svc_list())
@@ -445,10 +461,11 @@ def page_services(l):
 <section class="svc-band esp">
  <div class="wrap">
   <div class="band-title"><span class="k" style="gap:0">{e(t(l, 'services_main'))}</span></div>
-  <div class="cards">{svc_cards(l, lambda s: '#' + s['id'])}</div>
+  <div class="cards" data-carousel>{svc_cards(l)}</div>
  </div>
 </section>
-<section class="svc-detail"><div class="wrap">{''.join(det)}{policies(l)}</div></section>
+<section class="svc-detail"><div class="wrap">{''.join(det)}</div></section>
+""" + essentials(l) + f"""
 <section class="est marble" id="estimateur">
  {ribbon('r-tl')}
  <div class="wrap">
@@ -488,6 +505,82 @@ def policies(l):
     if not rows:
         return ""  # never invent policies
     return f'<div class="sd" style="display:block"><span class="k">{e(t(l, "policies_title"))}</span><dl class="facts">{rows}</dl></div>'
+
+
+X = {  # extra UI strings for the refinement pass
+    "fr": {"details": "Voir le détail", "styles": "Les variantes", "styles_sub": "Choisissez un style pour pré-remplir votre demande.",
+           "book_style": "Réserver ce style", "price": "Tarif", "duration": "Durée", "addons": "Options", "work": "Réalisations de Dior",
+           "ess_k": "Bon à savoir", "ess_t": "Avant votre <em>rendez-vous</em>", "pol_t": "Réservation", "prep_t": "Préparation",
+           "faq_t": "Questions fréquentes", "other": "Autres prestations", "all_services": "Toutes les prestations",
+           "pol": ["Sur rendez-vous uniquement, dans un studio privé à Laval.", "Chaque demande est confirmée personnellement par Dior.",
+                   "L’adresse exacte vous est communiquée à la confirmation.", "Le tarif est confirmé avec vous avant le rendez-vous."],
+           "served": "Clientes de Laval, Montréal et de la Rive-Nord bienvenues."},
+    "en": {"details": "View details", "styles": "Style options", "styles_sub": "Pick a style to pre-fill your request.",
+           "book_style": "Book this style", "price": "Price", "duration": "Duration", "addons": "Add-ons", "work": "Dior’s work",
+           "ess_k": "Good to know", "ess_t": "Before your <em>appointment</em>", "pol_t": "Booking", "prep_t": "Preparation",
+           "faq_t": "Frequently asked questions", "other": "Other services", "all_services": "All services",
+           "pol": ["By appointment only, in a private studio in Laval.", "Every request is confirmed personally by Dior.",
+                   "The exact address is shared on confirmation.", "The price is confirmed with you before your appointment."],
+           "served": "Clients from Laval, Montréal and the North Shore are welcome."},
+}
+
+
+def faq_items():
+    return [f for f in S.get("faq", []) if ready(f) and f.get("q") and f.get("a")]
+
+
+def essentials(l, svc=None):
+    x = X[l]
+    pol = list(x["pol"])
+    dep, can = BK.get("deposit", {}), BK.get("cancellation_policy", {})
+    if ready(dep) and tr(dep.get("text"), l):
+        pol.append(f'{t(l, "deposit_label")} — {tr(dep["text"], l)}')
+    if ready(can) and tr(can.get("text"), l):
+        pol.append(f'{t(l, "cancel_label")} — {tr(can["text"], l)}')
+    preps = []
+    for s in ([svc] if svc else svc_list()):
+        pr = s.get("preparation", {})
+        if ready(pr) and tr(pr, l):
+            preps.append((tr(s["name"], l), tr(pr, l)))
+    prep_html = "".join(f'<li><b>{e(n)}</b> — {e(v)}</li>' for n, v in preps) if preps else f'<li>{e(t(l, "prep_pending"))}</li>'
+    faqs = "".join(f'<details class="qa"><summary>{e(tr(f["q"], l))}</summary><p>{e(tr(f["a"], l))}</p></details>' for f in faq_items())
+    return f"""
+<section class="ess" id="{'bon-a-savoir' if l == 'fr' else 'good-to-know'}"><div class="wrap">
+ <div class="ess-head rv"><span class="k">{e(x['ess_k'])}</span><h2 class="h">{x['ess_t']}</h2></div>
+ <div class="ess-grid">
+  <div class="ess-col rv"><h3>{e(x['pol_t'])}</h3><ul class="ticks">{''.join(f'<li>{e(p)}</li>' for p in pol)}</ul>
+   <h3 style="margin-top:26px">{e(x['prep_t'])}</h3><ul class="ticks">{prep_html}</ul></div>
+  {f'<div class="ess-col rv"><h3>{e(x["faq_t"])}</h3><div class="faq">{faqs}</div></div>' if faqs else ''}
+ </div>
+</div></section>"""
+
+
+def page_service(s, l):
+    x = X[l]
+    vars_ = [v for v in s.get("variations", []) if v.get("status", "READY") == "READY"]
+    adds = [a for a in s.get("addons", []) if a.get("status", "READY") == "READY"]
+    book = url("booking", l) + "?service=" + s["id"]
+    vcards = "".join(f"""<li class="var rv"><div><b>{e(tr(v['name'], l))}</b><span>{e(money(v.get('price_cad'), l)) if v.get('price_cad') not in (None, '') else e(svc_price(s, l))} · {e(dur(v.get('duration_min'), l)) if v.get('duration_min') else e(svc_dur(s, l))}</span></div><a class="btn small ghost" href="{book}&amp;variation={urllib.parse.quote(tr(v['name'], l))}">{e(x['book_style'])} {ARR}</a></li>""" for v in vars_)
+    allg = gallery_items()
+    rel = [(i, g) for i, g in enumerate(allg) if g.get("category") == s["id"]][:8]
+    relh = "".join(f'<button type="button" data-lb="{i}" aria-label="{e(t(l, "enlarge"))} — {e(tr(g.get("caption"), l))}"><span class="arch" style="display:block">{img_tag(g.get("thumb") or g["image"], tr(g.get("alt"), l), l=l, w=400, h=533)}</span><span class="cap">{e(tr(g.get("caption"), l))}</span></button>' for i, g in rel)
+    others = "".join(f'<a href="{url("svc:" + o["id"], l)}">{e(tr(o["name"], l))}</a>' for o in svc_list() if o["id"] != s["id"])
+    hero_img = f'<div class="arch">{img_tag(svc_img(s), tr(s["name"], l), l=l, lazy=False)}</div>'
+    cta = f'<div class="hero-cta"><a class="btn" href="{book}">{e(t(l, "book_this"))} {ARR}</a></div>'
+    facts = f'<dl class="facts lite"><div>{TAG}<span><dt>{e(x["price"])}</dt><dd>{e(svc_price(s, l))}</dd></span></div><div>{HOUR}<span><dt>{e(x["duration"])}</dt><dd>{e(svc_dur(s, l))}</dd></span></div></dl>'
+    return phero(l, t(l, "services_kicker"), e(tr(s["name"], l)), "", tr(s["description"], l), facts + cta, hero_img) + f"""
+<section class="svd"><div class="wrap svd-grid">
+ <div>
+  <div class="rv"><span class="k">{e(x['styles'])}</span><p class="txt" style="margin-top:8px">{e(x['styles_sub'])}</p></div>
+  <ul class="vars">{vcards or f'<li class="var"><div><b>{e(t(l, "variations_pending"))}</b></div></li>'}</ul>
+  {f'<div class="rv" style="margin-top:28px"><span class="k">{e(x["addons"])}</span><div class="chips">{"".join(f"<span class=chip>{e(tr(a['name'], l))}</span>" for a in adds)}</div></div>' if adds else ''}
+ </div>
+ {f'<div class="svd-work"><span class="k">{e(x["work"])}</span><div class="mini" data-carousel>{relh}</div></div>' if relh else ''}
+</div></section>
+""" + essentials(l, s) + f"""
+<section class="others"><div class="wrap"><span class="k">{e(x['other'])}</span><nav class="other-links">{others}<a href="{url('services', l)}">{e(x['all_services'])} {GO}</a></nav></div></section>
+{lightbox(l)}
+""" + final_cta(l)
 
 
 def page_gallery(l):
@@ -683,6 +776,12 @@ def build():
             body = fn(l)
             write(url(p, l).strip("/") + "/index.html", head(p, l, title, desc) + header(p, l) + body + footer(p, l))
             urls.append((p, l))
+        for sv in svc_list():
+            pid = "svc:" + sv["id"]
+            title = f'{tr(sv["name"], l)} — {"Laval" if l == "fr" else "Laval"} | {B["name"]}'
+            desc = tr(sv["description"], l) + " " + X[l]["served"]
+            write(url(pid, l).strip("/") + "/index.html", head(pid, l, title, desc) + header(pid, l) + page_service(sv, l) + footer(pid, l))
+            urls.append((pid, l))
         # 404 per language
         nf = f'<section class="final marble" style="min-height:60vh"><div class="wrap"><span class="k both">404</span><h1 class="h" style="margin-top:16px">{e(T[l]["notfound"])}</h1><p style="margin-top:26px"><a class="btn" href="{url("home", l)}">{e(T[l]["nav_home"])} {ARR}</a></p></div></section>'
         write(f"{l}/404.html", head("home", l, "404 — " + B["name"], T[l]["meta_home_desc"]).replace("<head>", '<head>\n<meta name="robots" content="noindex">') + header("", l) + nf + footer("home", l))

@@ -677,21 +677,6 @@
    {
     "status": "READY",
     "inspiration": false,
-    "image": "/assets/work/blonde-boho-curls-l.webp",
-    "thumb": "/assets/work/blonde-boho-curls-s.webp",
-    "category": "braids",
-    "caption": {
-     "fr": "Boho knotless blondes bouclées",
-     "en": "Blonde curly boho knotless"
-    },
-    "alt": {
-     "fr": "Boho knotless blondes bouclées — réalisation de Dior",
-     "en": "Blonde curly boho knotless — styled by Dior"
-    }
-   },
-   {
-    "status": "READY",
-    "inspiration": false,
     "image": "/assets/work/men-cornrows-top-l.webp",
     "thumb": "/assets/work/men-cornrows-top-s.webp",
     "category": "braids",
@@ -707,16 +692,16 @@
    {
     "status": "READY",
     "inspiration": false,
-    "image": "/assets/work/kids-curly-box-l.webp",
-    "thumb": "/assets/work/kids-curly-box-s.webp",
-    "category": "kids",
+    "image": "/assets/work/blonde-boho-curls-l.webp",
+    "thumb": "/assets/work/blonde-boho-curls-s.webp",
+    "category": "braids",
     "caption": {
-     "fr": "Box braids enfant, pointes bouclées",
-     "en": "Kids box braids with curly ends"
+     "fr": "Boho knotless blondes bouclées",
+     "en": "Blonde curly boho knotless"
     },
     "alt": {
-     "fr": "Box braids enfant, pointes bouclées — réalisation de Dior",
-     "en": "Kids box braids with curly ends — styled by Dior"
+     "fr": "Boho knotless blondes bouclées — réalisation de Dior",
+     "en": "Blonde curly boho knotless — styled by Dior"
     }
    },
    {
@@ -752,6 +737,21 @@
    {
     "status": "READY",
     "inspiration": false,
+    "image": "/assets/work/men-stitch-cornrows-l.webp",
+    "thumb": "/assets/work/men-stitch-cornrows-s.webp",
+    "category": "braids",
+    "caption": {
+     "fr": "Stitch cornrows homme",
+     "en": "Men’s stitch cornrows"
+    },
+    "alt": {
+     "fr": "Stitch cornrows homme — réalisation de Dior",
+     "en": "Men’s stitch cornrows — styled by Dior"
+    }
+   },
+   {
+    "status": "READY",
+    "inspiration": false,
     "image": "/assets/work/twists-ombre-l.webp",
     "thumb": "/assets/work/twists-ombre-s.webp",
     "category": "twists",
@@ -762,6 +762,21 @@
     "alt": {
      "fr": "Twists ombrées — réalisation de Dior",
      "en": "Ombré twists — styled by Dior"
+    }
+   },
+   {
+    "status": "READY",
+    "inspiration": false,
+    "image": "/assets/work/kids-curly-box-l.webp",
+    "thumb": "/assets/work/kids-curly-box-s.webp",
+    "category": "kids",
+    "caption": {
+     "fr": "Box braids enfant, pointes bouclées",
+     "en": "Kids box braids with curly ends"
+    },
+    "alt": {
+     "fr": "Box braids enfant, pointes bouclées — réalisation de Dior",
+     "en": "Kids box braids with curly ends — styled by Dior"
     }
    },
    {
@@ -792,21 +807,6 @@
     "alt": {
      "fr": "Boho knotless, séparations — réalisation de Dior",
      "en": "Boho knotless parting — styled by Dior"
-    }
-   },
-   {
-    "status": "READY",
-    "inspiration": false,
-    "image": "/assets/work/men-stitch-cornrows-l.webp",
-    "thumb": "/assets/work/men-stitch-cornrows-s.webp",
-    "category": "braids",
-    "caption": {
-     "fr": "Stitch cornrows homme",
-     "en": "Men’s stitch cornrows"
-    },
-    "alt": {
-     "fr": "Stitch cornrows homme — réalisation de Dior",
-     "en": "Men’s stitch cornrows — styled by Dior"
     }
    },
    {
@@ -887,7 +887,96 @@
   ]
  },
  "testimonials": [],
- "faq": [],
+ "faq": [
+  {
+   "status": "READY",
+   "q": {
+    "fr": "Comment prendre rendez-vous ?",
+    "en": "How do I book?"
+   },
+   "a": {
+    "fr": "Choisissez votre prestation sur la page Réservation, indiquez vos préférences et envoyez votre demande. Dior vous recontacte personnellement pour confirmer la date et l’heure.",
+    "en": "Choose your service on the Booking page, add your preferences and send your request. Dior gets back to you personally to confirm the date and time."
+   }
+  },
+  {
+   "status": "READY",
+   "q": {
+    "fr": "Où se trouve le studio ?",
+    "en": "Where is the studio?"
+   },
+   "a": {
+    "fr": "Le studio est situé à Laval, au Québec. Comme il s’agit d’un studio privé, l’adresse exacte vous est communiquée une fois votre rendez-vous confirmé.",
+    "en": "The studio is in Laval, Quebec. As it is a private studio, the exact address is shared once your appointment is confirmed."
+   }
+  },
+  {
+   "status": "READY",
+   "q": {
+    "fr": "Combien coûte une coiffure ?",
+    "en": "How much does a style cost?"
+   },
+   "a": {
+    "fr": "Le prix dépend du style, de la longueur et de la taille des tresses. Dior vous confirme le tarif avant votre rendez-vous.",
+    "en": "The price depends on the style, length and size of the braids. Dior confirms the price with you before your appointment."
+   }
+  },
+  {
+   "status": "READY",
+   "q": {
+    "fr": "Puis-je envoyer une photo du style souhaité ?",
+    "en": "Can I send a photo of the style I want?"
+   },
+   "a": {
+    "fr": "Oui. Vous pouvez joindre une photo d’inspiration directement dans le formulaire de réservation.",
+    "en": "Yes. You can attach an inspiration photo directly in the booking form."
+   }
+  },
+  {
+   "status": "READY",
+   "q": {
+    "fr": "Coiffez-vous les enfants ?",
+    "en": "Do you braid children’s hair?"
+   },
+   "a": {
+    "fr": "Oui : tresses avec perles, nattes et box braids pour enfants.",
+    "en": "Yes: braids with beads, cornrows and box braids for kids."
+   }
+  },
+  {
+   "status": "READY",
+   "q": {
+    "fr": "Coiffez-vous les hommes ?",
+    "en": "Do you braid men’s hair?"
+   },
+   "a": {
+    "fr": "Oui, notamment les cornrows et stitch braids. Indiquez le style souhaité dans votre demande.",
+    "en": "Yes, including cornrows and stitch braids. Just describe the style you want in your request."
+   }
+  },
+  {
+   "status": "READY",
+   "q": {
+    "fr": "Comment préparer mes cheveux ?",
+    "en": "How should I prepare my hair?"
+   },
+   "a": {
+    "fr": "Les consignes de préparation adaptées à votre coiffure vous sont transmises lors de la confirmation de votre rendez-vous.",
+    "en": "Preparation instructions for your style are shared when your appointment is confirmed."
+   }
+  },
+  {
+   "status": "READY",
+   "q": {
+    "fr": "En quelle langue se déroule le rendez-vous ?",
+    "en": "Which languages does Dior speak?"
+   },
+   "a": {
+    "fr": "Dior vous accueille en français et en anglais.",
+    "en": "Dior welcomes you in French and English."
+   }
+  }
+ ],
  "journal": {
   "topics": [
    {
